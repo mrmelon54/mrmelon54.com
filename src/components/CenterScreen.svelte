@@ -11,12 +11,14 @@
     place-items: center;
     min-width: 320px;
     min-height: calc(100vh - 50px);
+    box-sizing: border-box;
 
     > .center-screen {
-      max-width: 1280px;
+      max-width: min(100%, 1280px);
       margin: 0 auto;
       padding: 2rem;
       text-align: center;
+      box-sizing: border-box;
     }
   }
 </style>
