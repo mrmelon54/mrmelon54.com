@@ -1,48 +1,7 @@
 <script lang="ts">
   import {link} from "svelte-navigator";
   import CenterScreen from "~/components/CenterScreen.svelte";
-
-  type ModData = {
-    id: string;
-    slug: string;
-    project_type: string;
-    team: string;
-    title: string;
-    description: string;
-    body: string;
-    published: Date;
-    updated: Date;
-    approved: Date;
-    status: string;
-    client_side: "required" | "optional" | "unsupported";
-    server_side: "required" | "optional" | "unsupported";
-    downloads: number;
-    followers: number;
-    categories: Array<string>;
-    additional_categories: Array<string>;
-    versions: Array<string>;
-    icon_url: string;
-    issues_url: string;
-    source_url: string;
-    wiki_url: string;
-    discord_url: string;
-    donation_urls: Array<DonationItem>;
-    gallery: Array<GalleryItem>;
-  };
-
-  type DonationItem = {
-    id: string;
-    platform: string;
-    url: string;
-  };
-
-  type GalleryItem = {
-    url: string;
-    featured: boolean;
-    title: string;
-    description: string;
-    created: Date;
-  };
+  import type {ModData} from "~/utils/api/modrinth";
 
   const modList: Promise<Array<ModData>> = new Promise((res, rej) => {
     fetch("https://api.modrinth.com/v2/user/mrmelon54/projects")
@@ -70,11 +29,12 @@
   {:then x}
     <div class="projects">
       {#each x as y}
-        <div class="project-item">
-          <img src={y.icon_url} />
+        <a href="/minecraft/{y.id}" use:link class="project-item">
+          <img src={y.icon_url} alt={y.title} />
+          <span class="project-item-title">{y.title}</span>
+          <span class="flex-gap" />
           <span class="project-item-id">{y.id}</span>
-          <span class="project-item-id">{y.title}</span>
-        </div>
+        </a>
       {/each}
     </div>
   {/await}
@@ -88,16 +48,33 @@
   }
 
   .projects {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
 
     > .project-item {
-      flex: 25%;
-      max-width: 25%;
       display: flex;
       flex-direction: column;
       background: var(--bg-panel);
       border-radius: 16px;
+      -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+
+      > .project-item-id {
+        font-size: 90%;
+        padding: 0 8px 8px 8px;
+        color: gray;
+      }
+
+      > .project-item-title {
+        padding: 16px 16px 8px 16px;
+        color: var(--primary-text);
+      }
+
+      > .flex-gap {
+        flex-grow: 1;
+      }
 
       @media (max-width: 800px) {
         & {
