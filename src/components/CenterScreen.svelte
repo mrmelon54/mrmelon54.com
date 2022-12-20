@@ -19,6 +19,7 @@
       padding: 2rem;
       text-align: center;
       box-sizing: border-box;
+      width: 100%;
     }
   }
 </style>

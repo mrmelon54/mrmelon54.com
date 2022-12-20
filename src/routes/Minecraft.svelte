@@ -16,14 +16,6 @@
 
 <CenterScreen>
   <h1 class="title-text">MrMelon54 Minecraft Projects</h1>
-  <ul>
-    <li>
-      <span><a href="/minecraft/updates" use:link>Updates</a></span>
-    </li>
-    <li>
-      <span>Coming soon</span>
-    </li>
-  </ul>
   {#await modList}
     <div class="projects-loading" />
   {:then x}
@@ -52,6 +44,18 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
 
+    @media (max-width: 800px) {
+        & {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        & {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
     > .project-item {
       display: flex;
       flex-direction: column;
@@ -74,20 +78,6 @@
 
       > .flex-gap {
         flex-grow: 1;
-      }
-
-      @media (max-width: 800px) {
-        & {
-          flex: 50%;
-          max-width: 50%;
-        }
-      }
-
-      @media (max-width: 600px) {
-        & {
-          flex: 100%;
-          max-width: 100%;
-        }
       }
 
       > img {
