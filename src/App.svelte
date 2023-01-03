@@ -2,14 +2,11 @@
   import {Router, Route} from "svelte-navigator";
   import Header from "~/components/Header.svelte";
   import LazyComponent from "~/lib/LazyComponent.svelte";
-
-  // @ts-ignore
-  const cssVar = window.VITE_CSS_VAR ?? import.meta.env.VITE_CSS_VAR;
 </script>
 
 <svelte:head>
-  <link rel="stylesheet" href="{cssVar}.light.css" media="screen" />
-  <link rel="stylesheet" href="{cssVar}.dark.css" media="screen and (prefers-color-scheme: dark)" />
+  <link rel="stylesheet" href="{import.meta.env.VITE_CSS_VAR}.light.css" media="screen" />
+  <link rel="stylesheet" href="{import.meta.env.VITE_CSS_VAR}.dark.css" media="screen and (prefers-color-scheme: dark)" />
 </svelte:head>
 
 <div id="app-router">

@@ -1,7 +1,7 @@
 <script lang="ts">
   import {link} from "svelte-navigator";
   import CenterScreen from "~/components/CenterScreen.svelte";
-  import type {ModData} from "~/utils/api/modrinth";
+  import type {ModData} from "~/api/modrinth";
 
   const modList: Promise<Array<ModData>> = new Promise((res, rej) => {
     fetch("https://api.modrinth.com/v2/user/mrmelon54/projects")
@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-  <title>KTaNE | MrMelon54.com</title>
+  <title>Minecraft | MrMelon54.com</title>
 </svelte:head>
 
 <CenterScreen>

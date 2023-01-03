@@ -2,9 +2,6 @@
   import melonLogo from "~/assets/melon.svg";
   import {link, useLocation} from "svelte-navigator";
 
-  // @ts-ignore
-  const urlId = window.VITE_URL_ID ?? import.meta.env.VITE_URL_ID;
-
   const location = useLocation();
   let isHome: boolean;
   $: isHome = $location.pathname == "/";
@@ -22,7 +19,7 @@
     {/if}
 
     <nav>
-      <a href={urlId}>ID</a>
+      <a href={import.meta.env.VITE_URL_ID} rel="noreferrer" target="_blank">ID</a>
       <a href="/minecraft" use:link>Minecraft</a>
       <a href="/ktane" use:link>KTaNE</a>
     </nav>
