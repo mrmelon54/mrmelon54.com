@@ -8,47 +8,60 @@
   import ModrinthLogo from "~/icons/ModrinthLogo.svelte";
   import CurseforgeLogo from "~/icons/CurseforgeLogo.svelte";
   import GithubLogo from "~/icons/GithubLogo.svelte";
+  import {modStore} from "~/stores/minecraft-cache";
 
   const params = useParams();
-  const modData: Promise<ModData> = new Promise((res, rej) => {
-    fetch(`https://api.modrinth.com/v2/project/${$params.id}`)
-      .then(resp => res(resp.json()))
-      .catch(err => rej(err));
-  });
   const updateData: Promise<Project> = new Promise((res, rej) => {
     fetch(`${import.meta.env.VITE_TIMELINE_API}/project/minecraft/${$params.id}`)
       .then(resp => res(resp.json()))
       .catch(err => rej(err));
   });
-  const buttonData: Promise<ButtonData> = new Promise((res, rej) => {
-    fetch(`https://cdn.mrmelon54.com/assets/minecraft-translate/${$params.id}.json`)
-      .then(resp => res(resp.json()))
-      .catch(err => rej(err));
+
+  let modData: ModData;
+  let buttonData: ButtonData;
+
+  modStore.subscribe(x => {
+    if (x instanceof Error) {
+      modData = null;
+      buttonData = null;
+    } else if (x) {
+      modData = x.projectsSlugMap[$params.id];
+      buttonData = modData ? x.modAlias[modData.id] : null;
+    } else {
+      modData = null;
+      buttonData = null;
+    }
   });
 </script>
 
+<svelte:head>
+  {#if modData}
+    <title>{modData.title} | Minecraft | MrMelon54.com</title>
+  {:else}
+    <title>Minecraft | MrMelon54.com</title>
+  {/if}
+</svelte:head>
+
 <CenterScreen>
-  {#await modData}
-    <div class="projects-loading" />
-  {:then y}
+  {#if modData}
     <div class="mod-meta">
-      <img class="title-img" src={y.icon_url} alt={y.title} />
-      <h1 class="title-text">{y.title}</h1>
-      {#await buttonData}
-        <div class="buttons-loading" />
-      {:then w}
+      <img class="title-img" src={modData.icon_url} alt={modData.title} />
+      <h1 class="title-text">{modData.title}</h1>
+      {#if buttonData}
         <div class="link-buttons">
-          <a class="brand-button button-modrinth" rel="noreferrer" target="_blank" href={w.modrinth}>
+          <a class="brand-button button-modrinth" rel="noreferrer" target="_blank" href={buttonData.modrinth}>
             <ModrinthLogo />
           </a>
-          <a class="brand-button button-curseforge" rel="noreferrer" target="_blank" href={w.curseforge}>
+          <a class="brand-button button-curseforge" rel="noreferrer" target="_blank" href={buttonData.curseforge}>
             <CurseforgeLogo />
           </a>
-          <a class="brand-button button-github" rel="noreferrer" target="_blank" href={w.github}>
-            <GithubLogo/>
+          <a class="brand-button button-github" rel="noreferrer" target="_blank" href={buttonData.github}>
+            <GithubLogo />
           </a>
         </div>
-      {/await}
+      {:else}
+        <div class="buttons-loading" />
+      {/if}
       {#await updateData}
         <div class="progress">
           <div class="progress-bar progress-infinite" />
@@ -68,9 +81,11 @@
       {/await}
     </div>
     <div class="body-text">
-      <LazyComponent component={() => import("~/markdown/Markdown.svelte")} delayMs={500} source={y.body}>Loading...</LazyComponent>
+      <LazyComponent component={() => import("~/markdown/Markdown.svelte")} delayMs={500} source={modData.body}>Loading...</LazyComponent>
     </div>
-  {/await}
+  {:else}
+    <div class="projects-loading" />
+  {/if}
 </CenterScreen>
 
 <style lang="scss">

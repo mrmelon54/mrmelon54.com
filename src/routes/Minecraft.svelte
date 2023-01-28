@@ -2,12 +2,7 @@
   import {link} from "svelte-navigator";
   import CenterScreen from "~/components/CenterScreen.svelte";
   import type {ModData} from "~/api/modrinth";
-
-  const modList: Promise<Array<ModData>> = new Promise((res, rej) => {
-    fetch("https://api.modrinth.com/v2/user/mrmelon54/projects")
-      .then(resp => res(resp.json()))
-      .catch(err => rej(err));
-  });
+  import {modStore} from "~/stores/minecraft-cache";
 </script>
 
 <svelte:head>
@@ -16,20 +11,23 @@
 
 <CenterScreen>
   <h1 class="title-text">MrMelon54 Minecraft Projects</h1>
-  {#await modList}
-    <div class="projects-loading" />
-  {:then x}
+  {#if $modStore instanceof Error}
+    <div class="projects-loading">{$modStore.message}</div>
+  {:else if $modStore}
     <div class="projects">
-      {#each x as y}
-        <a href="/minecraft/{y.id}" use:link class="project-item">
+      {#each $modStore.projects as y}
+        <a href="/minecraft/{y.slug}" use:link class="project-item">
           <img src={y.icon_url} alt={y.title} />
           <span class="project-item-title">{y.title}</span>
           <span class="flex-gap" />
+          <span class="project-item-id">{y.slug}</span>
           <span class="project-item-id">{y.id}</span>
         </a>
       {/each}
     </div>
-  {/await}
+  {:else}
+    <div class="projects-loading" />
+  {/if}
 </CenterScreen>
 
 <style lang="scss">
@@ -45,16 +43,16 @@
     gap: 16px;
 
     @media (max-width: 800px) {
-        & {
-          grid-template-columns: repeat(3, 1fr);
-        }
+      & {
+        grid-template-columns: repeat(3, 1fr);
       }
+    }
 
-      @media (max-width: 600px) {
-        & {
-          grid-template-columns: repeat(2, 1fr);
-        }
+    @media (max-width: 600px) {
+      & {
+        grid-template-columns: repeat(2, 1fr);
       }
+    }
 
     > .project-item {
       display: flex;
