@@ -28,6 +28,9 @@
       <Route path="/ktane">
         <LazyComponent component={() => import("~/routes/Ktane.svelte")} delayMs={500}>Loading...</LazyComponent>
       </Route>
+      <Route path="/hosting">
+        <LazyComponent component={() => import("~/routes/Hosting.svelte")} delayMs={500}>Loading...</LazyComponent>
+      </Route>
     </main>
   </Router>
 </div>
