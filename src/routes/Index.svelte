@@ -3,6 +3,10 @@
   import CenterScreen from "~/components/CenterScreen.svelte";
 </script>
 
+<svelte:head>
+  <title>MrMelon54.com</title>
+</svelte:head>
+
 <CenterScreen>
   <div class="title-logo">
     <a href="https://mrmelon54.com">

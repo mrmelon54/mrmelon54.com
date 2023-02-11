@@ -21,7 +21,7 @@ export const modStore = writable<ModStore | Error | null>(
     (() => {
       PromiseAllUnique([
         fetch("https://api.modrinth.com/v2/user/mrmelon54/projects").then(resp => resp.json()),
-        fetch(`https://cdn.mrmelon54.com/assets/minecraft/mods.json`).then(resp => resp.json()),
+        fetch("https://cdn.mrmelon54.com/assets/minecraft/mods.json").then(resp => resp.json()),
       ])
         .then(([projects, modAlias]) => {
           let projectsIdMap: Map<string, ModData> = new Map();
