@@ -19,6 +19,9 @@
       <Route path="/about">
         <LazyComponent component={() => import("~/routes/About.svelte")} delayMs={500}>Loading...</LazyComponent>
       </Route>
+      <Route path="/minecraft/crafting">
+        <LazyComponent component={()=>import("~/routes/MinecraftCrafting.svelte")} delayMs={500}>Loading...</LazyComponent>
+      </Route>
       <Route path="/minecraft">
         <LazyComponent component={() => import("~/routes/Minecraft.svelte")} delayMs={500}>Loading...</LazyComponent>
       </Route>
