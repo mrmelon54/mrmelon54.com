@@ -2,9 +2,17 @@ import {defineConfig} from "vite";
 import {svelte} from "@sveltejs/vite-plugin-svelte";
 import sveltePreprocess from "svelte-preprocess";
 import {resolve as pathResolve} from "path";
+import ssr from "vite-plugin-ssr/plugin";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: `${process.env.BASE_URL || "/"}`,
+  build: {
+    emptyOutDir: true,
+  },
+  server: {
+    port: 5173,
+  },
   plugins: [
     svelte({
       preprocess: sveltePreprocess({
@@ -14,6 +22,12 @@ export default defineConfig({
           quietDeps: true,
         },
       }),
+      compilerOptions: {
+        hydratable: true,
+      },
+    }),
+    ssr({
+      prerender: true,
     }),
   ],
   optimizeDeps: {exclude: ["svelte-navigator"]},
