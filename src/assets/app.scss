@@ -1,3 +1,5 @@
+@import "../markdown/markdown.scss";
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -18,11 +20,11 @@
   --large-curve: 0.9375rem;
 }
 
-:global(body) {
+body {
   margin: 0;
 }
 
-:global(a) {
+a {
   font-weight: 500;
   color: var(--primary-link);
   text-decoration: inherit;
@@ -40,7 +42,7 @@
   }
 }
 
-:global(button) {
+button {
   border-radius: var(--small-curve);
   border: 1px solid transparent;
   padding: 0.6em 1.2em;

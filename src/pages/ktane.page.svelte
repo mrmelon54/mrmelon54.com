@@ -1,12 +1,14 @@
 <script lang="ts">
-  import CenterScreen from "~/components/CenterScreen.svelte";
+  import MetaTags from "~/components/MetaTags.svelte";
+  import Layout from "~/pages/__layout.svelte";
+
+  export let pageProps;
+  let _ = pageProps;
 </script>
 
-<svelte:head>
-  <title>KTaNE | MrMelon54.com</title>
-</svelte:head>
+<MetaTags title="KTaNE | MrMelon54.com" description="MrMelon54.com KTaNE Projects" />
 
-<CenterScreen>
+<Layout isHome={true}>
   <h1 class="title-text">MrMelon54 KTaNE Projects</h1>
   <ul>
     <li>
@@ -19,7 +21,7 @@
       <a href="https://ktane.mrmelon54.com/live-manual-editor">Live Manual Editor</a>
     </li>
   </ul>
-</CenterScreen>
+</Layout>
 
 <style lang="scss">
   .title-text {

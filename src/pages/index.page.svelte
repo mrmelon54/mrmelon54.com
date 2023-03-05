@@ -1,11 +1,13 @@
 <script lang="ts">
   import melonLogo from "~/assets/melon.svg";
+  import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "~/pages/__layout.svelte";
+
+  export let pageProps;
+  let _ = pageProps;
 </script>
 
-<svelte:head>
-  <title>MrMelon54.com</title>
-</svelte:head>
+<MetaTags title="MrMelon54.com" description="MrMelon54.com Home Page" />
 
 <Layout isHome={true}>
   <div class="title-logo">

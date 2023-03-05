@@ -1,0 +1,25 @@
+<script lang="ts">
+  import MagicLink from "~/components/MagicLink.svelte";
+  import MetaTags from "~/components/MetaTags.svelte";
+  import Layout from "~/pages/__layout.svelte";
+
+  export let pageProps;
+  let _ = pageProps;
+</script>
+
+<MetaTags title="Dev Bot | MrMelon54.com" description="MrMelon54.com Dev Bot" />
+
+<Layout isHome={true}>
+  <h1 class="title-text">Melon Dev Bot</h1>
+  <ul>
+    <li><a href="https://github.com/MelonDevBot" target="_blank" rel="noreferrer">Github</a></li>
+  </ul>
+</Layout>
+
+<style lang="scss">
+  .title-text {
+    margin: 0 0 24px 0;
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+</style>

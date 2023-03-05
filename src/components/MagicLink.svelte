@@ -1,17 +1,11 @@
 <script lang="ts">
-  import {link} from "svelte-navigator";
-
-  const locationHost = window.location.host;
-
-  export let domain: string;
+  export let href: string;
   export let secondary: boolean = false;
+  export let target = "";
+  export let rel = "";
 </script>
 
-{#if domain == locationHost}
-  <a class:secondary href="//{domain}" use:link><slot /></a>
-{:else}
-  <a class:secondary href="//{domain}"><slot /></a>
-{/if}
+<a class:secondary {href} {target} {rel}><slot /></a>
 
 <style lang="scss">
   a {

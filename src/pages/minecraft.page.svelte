@@ -1,26 +1,27 @@
 <script lang="ts">
-  import {link} from "svelte-navigator";
-  import CenterScreen from "~/components/CenterScreen.svelte";
-  import type {ModData} from "~/api/modrinth";
+  import MagicLink from "~/components/MagicLink.svelte";
+  import MetaTags from "~/components/MetaTags.svelte";
+  import Layout from "~/pages/__layout.svelte";
   import {modStore} from "~/stores/minecraft-cache";
+
+  export let pageProps;
+  let _ = pageProps;
 </script>
 
-<svelte:head>
-  <title>Minecraft | MrMelon54.com</title>
-</svelte:head>
+<MetaTags title="Minecraft | MrMelon54.com" description="MrMelon54.com Minecraft" />
 
-<CenterScreen>
+<Layout isHome={true}>
   <h1 class="title-text">MrMelon54 Minecraft Projects</h1>
   {#if $modStore instanceof Error}
     <div class="projects-loading">{$modStore.message}</div>
   {:else if $modStore}
     <ul>
-      <li><a href="/minecraft/crafting" use:link>Crafting screenshot generator</a></li>
+      <li><MagicLink href="/minecraft/crafting">Crafting screenshot generator</MagicLink></li>
     </ul>
     <h2>Mods</h2>
     <div class="projects">
       {#each $modStore.projects as y}
-        <a href="/minecraft/{y.slug}" use:link class="project-item">
+        <a href="/minecraft/{y.slug}" class="project-item">
           <img src={y.icon_url} alt={y.title} />
           <span class="project-item-title">{y.title}</span>
           <span class="flex-gap" />
@@ -32,7 +33,7 @@
   {:else}
     <div class="projects-loading" />
   {/if}
-</CenterScreen>
+</Layout>
 
 <style lang="scss">
   .title-text {
