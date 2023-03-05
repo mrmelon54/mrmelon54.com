@@ -1,10 +1,5 @@
 <script lang="ts">
-  import melonLogo from "~/assets/melon.svg";
-  import {link, useLocation} from "svelte-navigator";
-
-  const location = useLocation();
-  let isHome: boolean;
-  $: isHome = $location.pathname == "/";
+  export let isHome: boolean = false;
 </script>
 
 <header>
@@ -12,16 +7,16 @@
     {#if isHome}
       <span />
     {:else}
-      <a class="home-link" href="/" use:link>
-        <img src={melonLogo} alt="Melon Logo" />
+      <a class="home-link" href="/">
+        <img src="/melon.svg" alt="Melon Logo" />
         <h1>MrMelon54.com</h1>
       </a>
     {/if}
 
     <nav>
       <a href={import.meta.env.VITE_URL_ID} rel="noreferrer" target="_blank">ID</a>
-      <a href="/minecraft" use:link>Minecraft</a>
-      <a href="/ktane" use:link>KTaNE</a>
+      <a href="/minecraft">Minecraft</a>
+      <a href="/ktane">KTaNE</a>
     </nav>
   </div>
 </header>

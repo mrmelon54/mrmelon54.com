@@ -1,17 +1,20 @@
 <script lang="ts">
-  import CenterScreen from "~/components/CenterScreen.svelte";
+  import MagicLink from "~/components/MagicLink.svelte";
+  import MetaTags from "~/components/MetaTags.svelte";
+  import Layout from "~/pages/__layout.svelte";
+
+  export let pageProps;
+  let _ = pageProps;
 </script>
 
-<svelte:head>
-  <title>Melon Dev Bot | MrMelon54.com</title>
-</svelte:head>
+<MetaTags title="Dev Bot | MrMelon54.com" description="MrMelon54.com Dev Bot" />
 
-<CenterScreen>
+<Layout>
   <h1 class="title-text">Melon Dev Bot</h1>
   <ul>
     <li><a href="https://github.com/MelonDevBot" target="_blank" rel="noreferrer">Github</a></li>
   </ul>
-</CenterScreen>
+</Layout>
 
 <style lang="scss">
   .title-text {

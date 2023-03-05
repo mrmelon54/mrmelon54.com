@@ -1,6 +1,4 @@
 <script lang="ts">
-  import {useParams} from "svelte-navigator";
-  import CenterScreen from "~/components/CenterScreen.svelte";
   import type {ModData} from "~/api/modrinth";
   import type {Project} from "~/api/timeline";
   import type {ButtonData} from "~/api/button";
@@ -9,23 +7,31 @@
   import CurseforgeLogo from "~/icons/CurseforgeLogo.svelte";
   import GithubLogo from "~/icons/GithubLogo.svelte";
   import {modStore} from "~/stores/minecraft-cache";
+  import MetaTags from "~/components/MetaTags.svelte";
+  import Layout from "../__layout.svelte";
+  import {onMount} from "svelte";
 
-  const params = useParams();
-  const updateData: Promise<Project> = new Promise((res, rej) => {
-    fetch(`${import.meta.env.VITE_TIMELINE_API}/project/minecraft/${$params.id}`)
-      .then(resp => res(resp.json()))
-      .catch(err => rej(err));
-  });
+  export const props = ["project"];
+  export let __;
 
   let modData: ModData;
   let buttonData: ButtonData;
+  let updateData: Promise<Project> = new Promise((res, rej) => {});
+
+  onMount(() => {
+    updateData = new Promise((res, rej) => {
+      fetch(`${import.meta.env.VITE_TIMELINE_API}/project/minecraft/${__.routeParams.project}`)
+        .then(resp => res(resp.json()))
+        .catch(err => rej(err));
+    });
+  });
 
   modStore.subscribe(x => {
     if (x instanceof Error) {
       modData = null;
       buttonData = null;
     } else if (x) {
-      modData = x.projectsSlugMap[$params.id];
+      modData = x.projectsSlugMap[__.routeParams.project];
       buttonData = modData ? x.modAlias[modData.id] : null;
     } else {
       modData = null;
@@ -34,15 +40,9 @@
   });
 </script>
 
-<svelte:head>
-  {#if modData}
-    <title>{modData.title} | Minecraft | MrMelon54.com</title>
-  {:else}
-    <title>Minecraft | MrMelon54.com</title>
-  {/if}
-</svelte:head>
+<MetaTags url={__.urlOriginal} title={(modData ? `${modData.title} | ` : "") + "Minecraft | MrMelon54.com"} description="" keywords="minecraft,minecraft mod,{__.routeParams.project}" />
 
-<CenterScreen>
+<Layout>
   {#if modData}
     <div class="mod-meta">
       <img class="title-img" src={modData.icon_url} alt={modData.title} />
@@ -81,12 +81,12 @@
       {/await}
     </div>
     <div class="body-text">
-      <LazyComponent component={() => import("~/markdown/Markdown.svelte")} delayMs={500} source={modData.body}>Loading...</LazyComponent>
+      <LazyComponent component={() => import("~/components/Markdown.svelte")} delayMs={500} source={modData.body}>Loading...</LazyComponent>
     </div>
   {:else}
     <div class="projects-loading" />
   {/if}
-</CenterScreen>
+</Layout>
 
 <style lang="scss">
   .mod-meta {

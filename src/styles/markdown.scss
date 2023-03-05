@@ -257,7 +257,7 @@
   }
 
   > :last-child,
-  details[open] > :last-child:not(summary) {
+  details[open]> :last-child:not(summary) {
     margin-bottom: 0 !important;
   }
 
