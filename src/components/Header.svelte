@@ -8,7 +8,7 @@
       <span />
     {:else}
       <a class="home-link" href="/">
-        <img src="melon.svg" alt="Melon Logo" />
+        <img src="/melon.svg" alt="Melon Logo" />
         <h1>MrMelon54.com</h1>
       </a>
     {/if}

@@ -10,7 +10,7 @@
 
   onMount(() => {
     craftingBg = new Image(124, 62);
-    craftingBg.src = "assets/crafting_table.png";
+    craftingBg.src = "/crafting_table.png";
     craftingBg.onload = () => render();
   });
 

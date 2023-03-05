@@ -10,7 +10,7 @@
 <Layout isHome={true}>
   <div class="title-logo">
     <a href="https://mrmelon54.com">
-      <img src="melon.svg" class="logo" alt="Melon Logo" />
+      <img src="/melon.svg" class="logo" alt="Melon Logo" />
     </a>
   </div>
   <h1 class="title-text">MrMelon54.com</h1>
