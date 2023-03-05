@@ -1,14 +1,18 @@
 <script lang="ts">
-  import CraftingTable from "~/assets/crafting_table.png";
+  import {onMount} from "svelte";
   import Layout from "../__layout.svelte";
 
   const craftWidth = 124;
   const craftHeight = 62;
 
-  let craftingBg = new Image(124, 62);
-  craftingBg.src = CraftingTable;
-  craftingBg.onload = () => render();
+  let craftingBg;
   let craftingCanvas;
+
+  onMount(() => {
+    craftingBg = new Image(124, 62);
+    craftingBg.src = "assets/crafting_table.png";
+    craftingBg.onload = () => render();
+  });
 
   function render() {
     let craftingCtx = craftingCanvas.getContext("2d");

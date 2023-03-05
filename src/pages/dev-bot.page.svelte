@@ -9,7 +9,7 @@
 
 <MetaTags title="Dev Bot | MrMelon54.com" description="MrMelon54.com Dev Bot" />
 
-<Layout isHome={true}>
+<Layout>
   <h1 class="title-text">Melon Dev Bot</h1>
   <ul>
     <li><a href="https://github.com/MelonDevBot" target="_blank" rel="noreferrer">Github</a></li>

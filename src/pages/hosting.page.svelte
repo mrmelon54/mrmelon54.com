@@ -8,7 +8,7 @@
 
 <MetaTags title="Hosting | MrMelon54.com" description="MrMelon54.com Hosting" />
 
-<Layout isHome={true}>
+<Layout>
   <h1 class="title-text">MrMelon54 Hosting</h1>
   <ul>
     <li><a href="https://discord-plays.xyz" target="_blank" rel="noreferrer">Discord Plays</a></li>

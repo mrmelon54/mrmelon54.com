@@ -8,7 +8,7 @@ export async function render(pageContext) {
     target: app_el,
     hydrate: true,
     props: {
-      pageProps: pageContext.pageProps,
+      __: pageContext.__,
     },
   });
 }
@@ -27,5 +27,3 @@ export function onPageTransitionEnd(pageContext) {
   // For example:
   document.body.classList.remove("page-transition");
 }
-
-console.log("hi");

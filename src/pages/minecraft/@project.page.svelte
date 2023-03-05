@@ -12,9 +12,7 @@
   import {onMount} from "svelte";
 
   export const props = ["project"];
-  export let pageProps;
-
-  console.log("Props:", pageProps);
+  export let __;
 
   let modData: ModData;
   let buttonData: ButtonData;
@@ -22,7 +20,7 @@
 
   onMount(() => {
     updateData = new Promise((res, rej) => {
-      fetch(`${import.meta.env.VITE_TIMELINE_API}/project/minecraft/${pageProps.project}`)
+      fetch(`${import.meta.env.VITE_TIMELINE_API}/project/minecraft/${__.routeParams.project}`)
         .then(resp => res(resp.json()))
         .catch(err => rej(err));
     });
@@ -33,8 +31,8 @@
       modData = null;
       buttonData = null;
     } else if (x) {
-      modData = x.projectsSlugMap[pageProps.project];
-      buttonData = modData ? x.modAlias[pageProps.project] : null;
+      modData = x.projectsSlugMap[__.routeParams.project];
+      buttonData = modData ? x.modAlias[modData.id] : null;
     } else {
       modData = null;
       buttonData = null;
@@ -42,7 +40,7 @@
   });
 </script>
 
-<MetaTags title={(modData ? `${modData.title} | ` : "") + "Minecraft | MrMelon54.com"} description="" />
+<MetaTags url={__.urlOriginal} title={(modData ? `${modData.title} | ` : "") + "Minecraft | MrMelon54.com"} description="" keywords="minecraft,minecraft mod,{__.routeParams.project}" />
 
 <Layout>
   {#if modData}
@@ -83,9 +81,160 @@
       {/await}
     </div>
     <div class="body-text">
-      <LazyComponent component={() => import("~/markdown/Markdown.svelte")} delayMs={500} source={modData.body}>Loading...</LazyComponent>
+      <LazyComponent component={() => import("~/components/Markdown.svelte")} delayMs={500} source={modData.body}>Loading...</LazyComponent>
     </div>
   {:else}
     <div class="projects-loading" />
   {/if}
 </Layout>
+
+<style lang="scss">
+  .mod-meta {
+    .title-img {
+      width: max(25%, 100px);
+      aspect-ratio: 1/1;
+      border-radius: 32px;
+      margin-bottom: 32px;
+      -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .title-text {
+      margin: 0 0 24px 0;
+      font-size: 3.2em;
+      line-height: 1.1;
+    }
+
+    .link-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+
+      > .brand-button {
+        border-radius: 0.75rem;
+        padding: 6px;
+        min-width: 32px;
+        height: 32px;
+        -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        color: #dddddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        font-size: 115%;
+        font-family: sans-serif;
+
+        @media (max-width: 600px) {
+          & {
+            width: 48px;
+            height: 48px;
+          }
+        }
+
+        :global(svg) {
+          display: inline-block;
+          vertical-align: middle;
+          aspect-ratio: 1/1;
+          height: 100%;
+        }
+
+        &::after {
+          display: inline-block;
+          height: 32px;
+          line-height: 32px;
+          margin-right: 2px;
+
+          @media (max-width: 600px) {
+            & {
+              display: none;
+            }
+          }
+        }
+      }
+
+      > .button-modrinth {
+        color: #1bd96a;
+        background: #353535;
+
+        &::after {
+          color: #dddddd;
+          content: "Modrinth";
+        }
+      }
+
+      > .button-curseforge {
+        background: #d34037;
+
+        &::after {
+          content: "CurseForge";
+        }
+      }
+
+      > .button-github {
+        background: #6e40c9;
+
+        &::after {
+          content: "Github";
+        }
+      }
+    }
+
+    .progress {
+      margin-bottom: 32px;
+
+      > .progress-bar {
+        width: 100%;
+        height: 32px;
+        border-radius: 24px;
+        background-color: var(--bg-panel);
+        overflow: hidden;
+        position: relative;
+        -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+
+        > .progress-bar-done {
+          transform: translateX(-100%);
+          -webkit-animation: loadBar 1s forwards;
+          animation: loadBar 1s forwards;
+          height: 100%;
+          background-color: var(--primary-main);
+
+          @keyframes loadBar {
+            100% {
+              transform: translateX(0);
+            }
+          }
+
+          > .progress-bar-text {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-family: monospace;
+          }
+        }
+      }
+    }
+  }
+
+  .body-text {
+    text-align: left;
+    background: var(--bg-panel);
+    border-radius: 16px;
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+    padding: 16px;
+
+    :global(.markdown-body) :global(h1:first-child) {
+      display: none;
+    }
+  }
+</style>

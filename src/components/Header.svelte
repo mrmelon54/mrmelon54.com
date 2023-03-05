@@ -1,6 +1,4 @@
 <script lang="ts">
-  import melonLogo from "~/assets/melon.svg";
-
   export let isHome: boolean = false;
 </script>
 
@@ -10,7 +8,7 @@
       <span />
     {:else}
       <a class="home-link" href="/">
-        <img src={melonLogo} alt="Melon Logo" />
+        <img src="melon.svg" alt="Melon Logo" />
         <h1>MrMelon54.com</h1>
       </a>
     {/if}

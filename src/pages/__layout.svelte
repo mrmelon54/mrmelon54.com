@@ -1,6 +1,7 @@
 <script lang="ts">
   import CenterScreen from "~/components/CenterScreen.svelte";
   import Header from "~/components/Header.svelte";
+  import "~/styles/app.scss";
 
   export let isHome: boolean = false;
 </script>

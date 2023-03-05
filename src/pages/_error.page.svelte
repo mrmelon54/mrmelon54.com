@@ -1,13 +1,47 @@
 <script lang="ts">
   import {navigate} from "vite-plugin-ssr/client/router";
+  import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "./__layout.svelte";
 
   export let pageProps;
 </script>
 
+<MetaTags title="Error | MrMelon54.com" description="" />
+
 <Layout>
   <div id="missing-page">
     {#if pageProps.is404}
+      <div class="title-logo">
+        <div class="settings-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5.51 18.49a12 12 0 0 0 16.12.78c.49-.41.49-1.15.03-1.6L6.34 2.33a1.08 1.08 0 0 0-1.6.03A12 12 0 0 0 5.5 18.5Z" />
+            <path d="M8.34 15.66a8 8 0 0 0 10.4.78c.54-.4.54-1.16.06-1.64L9.2 5.2c-.48-.48-1.25-.48-1.64.06a8 8 0 0 0 .78 10.4Z" />
+            <path d="m14 10-5.5 5.5" />
+            <path d="M14 10v8" />
+            <path d="M14 10H6" />
+          </svg>
+        </div>
+      </div>
+      <h1 class="title-text">404 Not Found</h1>
+      <p class="coming-soon">You have lost your way, please return to valid paths.</p>
+      <p><button on:click={() => navigate("/")} class="refresh-btn">Back to homepage</button></p>
+      <div class="card-wrapper">
+        <div class="card">
+          <h3>What can I do?</h3>
+          <p class="sub-text">If you're a site visitor</p>
+          <p class="small-text">Maybe you followed a broken link? Try returning to the homepage or press the back button.</p>
+          <p class="small-text">If you need immediate assistance, please send us an email instead. We apologize for any inconvenience.</p>
+        </div>
+      </div>
+    {:else}
       <div class="title-logo">
         <div class="settings-icon">
           <svg
@@ -25,18 +59,18 @@
           </svg>
         </div>
       </div>
-      <h1 class="title-text">404 Not Found</h1>
-      <p class="coming-soon">You have lost your way, please return to valid paths.</p>
+      <h1 class="title-text">500 Internal Server Error</h1>
+      <p class="coming-soon">The server had an issue with this page.</p>
       <p><button on:click={() => navigate("/")} class="refresh-btn">Back to homepage</button></p>
       <div class="card-wrapper">
         <div class="card">
           <h3>What can I do?</h3>
           <p class="sub-text">If you're a site visitor</p>
-          <p class="small-text">Maybe you followed a broken link? Try returning to the homepage or press the back button.</p>
+          <p class="small-text">Maybe the server is not playing nice?</p>
           <p class="small-text">If you need immediate assistance, please send us an email instead. We apologize for any inconvenience.</p>
         </div>
       </div>
-    {:else}{/if}
+    {/if}
   </div>
 </Layout>
 
@@ -44,24 +78,6 @@
   #missing-page {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-
-  .center-screen-wrapper {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    /* min-height: calc(100vh); */
-    box-sizing: border-box;
-  }
-
-  .center-screen {
-    max-width: min(100%, 1280px);
-    margin: 0 auto;
-    padding: 2rem 0;
-    text-align: center;
-    box-sizing: border-box;
-    width: 100%;
   }
 
   .title-logo {

@@ -10,7 +10,7 @@
 
 <MetaTags title="Minecraft | MrMelon54.com" description="MrMelon54.com Minecraft" />
 
-<Layout isHome={true}>
+<Layout>
   <h1 class="title-text">MrMelon54 Minecraft Projects</h1>
   {#if $modStore instanceof Error}
     <div class="projects-loading">{$modStore.message}</div>

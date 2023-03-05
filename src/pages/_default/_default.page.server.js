@@ -1,13 +1,23 @@
 import {escapeInject, dangerouslySkipEscape} from "vite-plugin-ssr";
 const base = import.meta.env.BASE_URL;
 
-export {render};
-export {passToClient};
-
 // See https://vite-plugin-ssr.com/data-fetching
-const passToClient = ["pageProps", "routeParams"];
+export const passToClient = ["__", "pageProps", "routeParams", "urlOriginal"];
 
-async function render(pageContext) {
+export async function onBeforeRender(pageContext) {
+  const {routeParams, urlOriginal} = pageContext;
+
+  return {
+    pageContext: {
+      __: {
+        routeParams,
+        urlOriginal,
+      },
+    },
+  };
+}
+
+export async function render(pageContext) {
   const app = pageContext.Page.render(pageContext);
   const appHtml = app.html;
   const appCss = app.css.code;

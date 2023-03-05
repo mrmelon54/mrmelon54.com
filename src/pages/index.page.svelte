@@ -1,25 +1,21 @@
 <script lang="ts">
-  import melonLogo from "~/assets/melon.svg";
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "~/pages/__layout.svelte";
 
-  export let pageProps;
-  let _ = pageProps;
+  export let __;
 </script>
 
-<MetaTags title="MrMelon54.com" description="MrMelon54.com Home Page" />
+<MetaTags url={__.urlOriginal} title="MrMelon54.com" description="MrMelon54.com Home Page" keywords="" />
 
 <Layout isHome={true}>
   <div class="title-logo">
     <a href="https://mrmelon54.com">
-      <img src={melonLogo} class="logo" alt="Melon Logo" />
+      <img src="melon.svg" class="logo" alt="Melon Logo" />
     </a>
   </div>
   <h1 class="title-text">MrMelon54.com</h1>
 
   <p class="coming-soon">Coming soon to an internet server near you.</p>
-
-  <a href="/hi">hi</a>
 </Layout>
 
 <style lang="scss">

@@ -1,12 +1,4 @@
-export async function onBeforeRender(pageContext) {
-  const {project} = pageContext.routeParams;
-  const pageProps = {project};
-
-  return {
-    pageContext: {
-      pageProps,
-    },
-  };
+export async function prerender() {
+  let userProjects = await fetch("https://api.modrinth.com/v2/user/mrmelon54/projects").then(resp => resp.json());
+  return userProjects.map(x => `/minecraft/${x.slug}`);
 }
-
-export const passToClient = ["pageProps"];

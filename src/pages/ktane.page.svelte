@@ -8,7 +8,7 @@
 
 <MetaTags title="KTaNE | MrMelon54.com" description="MrMelon54.com KTaNE Projects" />
 
-<Layout isHome={true}>
+<Layout>
   <h1 class="title-text">MrMelon54 KTaNE Projects</h1>
   <ul>
     <li>
