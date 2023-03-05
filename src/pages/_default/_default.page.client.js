@@ -1,10 +1,8 @@
-export {render};
-
 export const clientRouting = true;
 
 export const prefetchStaticAssets = {when: "HOVER"};
 
-async function render(pageContext) {
+export async function render(pageContext) {
   const app_el = document.getElementById("app");
   new pageContext.Page({
     target: app_el,
@@ -14,3 +12,20 @@ async function render(pageContext) {
     },
   });
 }
+
+export function onPageTransitionStart(pageContext) {
+  console.log("Page transition start");
+  // `pageContext.isBackwardNavigation` is also set at `render(pageContext)`
+  // and `onPageTransitionEnd(pageContext)`.
+  console.log("Is backwards navigation?", pageContext.isBackwardNavigation);
+  // For example:
+  document.body.classList.add("page-transition");
+}
+
+export function onPageTransitionEnd(pageContext) {
+  console.log("Page transition end");
+  // For example:
+  document.body.classList.remove("page-transition");
+}
+
+console.log("hi");

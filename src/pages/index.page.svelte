@@ -1,13 +1,13 @@
 <script lang="ts">
   import melonLogo from "~/assets/melon.svg";
-  import CenterScreen from "~/components/CenterScreen.svelte";
+  import Layout from "~/pages/__layout.svelte";
 </script>
 
 <svelte:head>
   <title>MrMelon54.com</title>
 </svelte:head>
 
-<CenterScreen>
+<Layout isHome={true}>
   <div class="title-logo">
     <a href="https://mrmelon54.com">
       <img src={melonLogo} class="logo" alt="Melon Logo" />
@@ -16,7 +16,9 @@
   <h1 class="title-text">MrMelon54.com</h1>
 
   <p class="coming-soon">Coming soon to an internet server near you.</p>
-</CenterScreen>
+
+  <a href="/hi">hi</a>
+</Layout>
 
 <style lang="scss">
   .title-logo .logo {

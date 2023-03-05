@@ -4,10 +4,31 @@
   const locationHost = window.location.host;
 
   export let domain: string;
+  export let secondary: boolean = false;
 </script>
 
 {#if domain == locationHost}
-  <a href="//{domain}" use:link><slot /></a>
+  <a class:secondary href="//{domain}" use:link><slot /></a>
 {:else}
-  <a href="//{domain}"><slot /></a>
+  <a class:secondary href="//{domain}"><slot /></a>
 {/if}
+
+<style lang="scss">
+  a {
+    font-weight: 500;
+    color: var(--primary-link);
+    text-decoration: inherit;
+
+    &:hover {
+      color: var(--primary-hover);
+    }
+
+    &.secondary {
+      color: var(--secondary-link);
+
+      &:hover {
+        color: var(--secondary-hover);
+      }
+    }
+  }
+</style>
