@@ -6,7 +6,7 @@
   export let pageProps;
 </script>
 
-<MetaTags title="Error | MrMelon54.com" description="" />
+<MetaTags url={__.urlOriginal} title="Error | MrMelon54.com" description="" keywords="error,error page" />
 
 <Layout>
   <div id="missing-page">

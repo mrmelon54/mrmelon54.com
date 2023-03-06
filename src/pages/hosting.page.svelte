@@ -2,11 +2,10 @@
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "~/pages/__layout.svelte";
 
-  export let pageProps;
-  let _ = pageProps;
+  export let __;
 </script>
 
-<MetaTags title="Hosting | MrMelon54.com" description="MrMelon54.com Hosting" />
+<MetaTags url={__.urlOriginal} title="Hosting | MrMelon54.com" description="MrMelon54.com Hosting" keywords="hosting" />
 
 <Layout>
   <h1 class="title-text">MrMelon54 Hosting</h1>

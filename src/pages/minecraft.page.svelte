@@ -4,11 +4,10 @@
   import Layout from "~/pages/__layout.svelte";
   import {modStore} from "~/stores/minecraft-cache";
 
-  export let pageProps;
-  let _ = pageProps;
+  export let __;
 </script>
 
-<MetaTags title="Minecraft | MrMelon54.com" description="MrMelon54.com Minecraft" />
+<MetaTags url={__.urlOriginal} title="Minecraft | MrMelon54.com" description="MrMelon54.com Minecraft" keywords="minecraft,minecraft mod,mrmelon54,modrinth,curseforge,github" />
 
 <Layout>
   <h1 class="title-text">MrMelon54 Minecraft Projects</h1>
@@ -16,7 +15,7 @@
     <div class="projects-loading">{$modStore.message}</div>
   {:else if $modStore}
     <ul>
-      <li><MagicLink href="/minecraft/crafting">Crafting screenshot generator</MagicLink></li>
+      <li><a href="/minecraft/crafting">Crafting screenshot generator</a></li>
     </ul>
     <h2>Mods</h2>
     <div class="projects">

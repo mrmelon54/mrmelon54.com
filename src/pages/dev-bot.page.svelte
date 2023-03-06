@@ -3,11 +3,10 @@
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "~/pages/__layout.svelte";
 
-  export let pageProps;
-  let _ = pageProps;
+  export let __;
 </script>
 
-<MetaTags title="Dev Bot | MrMelon54.com" description="MrMelon54.com Dev Bot" />
+<MetaTags url={__.urlOriginal} title="Dev Bot | MrMelon54.com" description="MrMelon54.com Dev Bot" keywords="dev bot,melondevbot,melon dev bot,github,commit,auto commit" />
 
 <Layout>
   <h1 class="title-text">Melon Dev Bot</h1>
