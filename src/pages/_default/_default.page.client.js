@@ -9,6 +9,7 @@ export async function render(pageContext) {
     hydrate: true,
     props: {
       __: pageContext.__,
+      pageProps: pageContext.pageProps,
     },
   });
 }

@@ -4,6 +4,7 @@
   import Layout from "./__layout.svelte";
 
   export let __;
+  export let pageProps;
 </script>
 
 <MetaTags url={__.urlOriginal} title="Error | MrMelon54.com" description="" keywords="error,error page" />
