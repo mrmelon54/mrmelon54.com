@@ -1,5 +1,4 @@
 <script lang="ts">
-  import MagicLink from "~/components/MagicLink.svelte";
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "~/pages/__layout.svelte";
 
