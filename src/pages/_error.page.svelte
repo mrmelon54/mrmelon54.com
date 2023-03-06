@@ -3,7 +3,7 @@
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "./__layout.svelte";
 
-  export let pageProps;
+  export let __;
 </script>
 
 <MetaTags url={__.urlOriginal} title="Error | MrMelon54.com" description="" keywords="error,error page" />
