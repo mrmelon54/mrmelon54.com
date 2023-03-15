@@ -19,7 +19,7 @@
   <meta property="og:title" content={title} />
   <meta property="og:url" content={url.indexOf("https://") == 0 ? url : "https://mrmelon54.com" + (url[0] == "/" ? url : "/" + url)} />
   <meta property="og:type" content="object" />
-  <meta property="og:image" content="https://mrmelon54.com/assets/melon.svg" />
+  <meta property="og:image" content="https://mrmelon54.com/melon.svg" />
   <meta property="og:site_name" content="MrMelon54" />
 
   <link rel="icon" type="image/svg+xml" href="/melon.svg" />
