@@ -19,10 +19,11 @@
   <meta property="og:title" content={title} />
   <meta property="og:url" content={url.indexOf("https://") == 0 ? url : "https://mrmelon54.com" + (url[0] == "/" ? url : "/" + url)} />
   <meta property="og:type" content="object" />
-  <meta property="og:image" content="https://mrmelon54.com/melon.svg" />
+  <meta property="og:image" content="https://mrmelon54.com/melon.png" />
   <meta property="og:site_name" content="MrMelon54" />
 
   <link rel="icon" type="image/svg+xml" href="/melon.svg" />
+  <link rel="icon" type="image/png" href="/melon.png" />
 
   <link rel="stylesheet" href="{import.meta.env.VITE_CSS_VAR}.light.css" media="screen" />
   <link rel="stylesheet" href="{import.meta.env.VITE_CSS_VAR}.dark.css" media="screen and (prefers-color-scheme: dark)" />
