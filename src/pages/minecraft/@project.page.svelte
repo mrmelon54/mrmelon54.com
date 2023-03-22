@@ -40,7 +40,12 @@
   });
 </script>
 
-<MetaTags url={__.urlOriginal} title={(modData ? `${modData.title} | ` : "") + "Minecraft | MrMelon54.com"} description="" keywords="minecraft,minecraft mod,{__.routeParams.project}" />
+<MetaTags
+  url={__.urlOriginal}
+  title={(modData ? `${modData.title} | ` : "") + "Minecraft | MrMelon54.com"}
+  description=""
+  keywords="minecraft,minecraft mod,{__.routeParams.project}"
+/>
 
 <Layout>
   {#if modData}
@@ -49,14 +54,14 @@
       <h1 class="title-text">{modData.title}</h1>
       {#if buttonData}
         <div class="link-buttons">
-          <a class="brand-button button-modrinth" rel="noreferrer" target="_blank" href={buttonData.modrinth}>
+          <a class="brand-button button-github" rel="noreferrer" target="_blank" href={buttonData.github} data-text="Github">
+            <GithubLogo />
+          </a>
+          <a class="brand-button button-modrinth" rel="noreferrer" target="_blank" href={buttonData.modrinth} data-text="Modrinth">
             <ModrinthLogo />
           </a>
-          <a class="brand-button button-curseforge" rel="noreferrer" target="_blank" href={buttonData.curseforge}>
+          <a class="brand-button button-curseforge" rel="noreferrer" target="_blank" href={buttonData.curseforge} data-text="CurseForge">
             <CurseforgeLogo />
-          </a>
-          <a class="brand-button button-github" rel="noreferrer" target="_blank" href={buttonData.github}>
-            <GithubLogo />
           </a>
         </div>
       {:else}
@@ -89,6 +94,8 @@
 </Layout>
 
 <style lang="scss">
+  @import "../../styles/link-buttons.scss";
+
   .mod-meta {
     .title-img {
       width: max(25%, 100px);
@@ -104,85 +111,6 @@
       margin: 0 0 24px 0;
       font-size: 3.2em;
       line-height: 1.1;
-    }
-
-    .link-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 32px;
-
-      > .brand-button {
-        border-radius: 0.75rem;
-        padding: 6px;
-        min-width: 32px;
-        height: 32px;
-        -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-        -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-        cursor: pointer;
-        color: #dddddd;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 6px;
-        font-size: 115%;
-        font-family: sans-serif;
-
-        @media (max-width: 600px) {
-          & {
-            width: 48px;
-            height: 48px;
-          }
-        }
-
-        :global(svg) {
-          display: inline-block;
-          vertical-align: middle;
-          aspect-ratio: 1/1;
-          height: 100%;
-        }
-
-        &::after {
-          display: inline-block;
-          height: 32px;
-          line-height: 32px;
-          margin-right: 2px;
-
-          @media (max-width: 600px) {
-            & {
-              display: none;
-            }
-          }
-        }
-      }
-
-      > .button-modrinth {
-        color: #1bd96a;
-        background: #353535;
-
-        &::after {
-          color: #dddddd;
-          content: "Modrinth";
-        }
-      }
-
-      > .button-curseforge {
-        background: #d34037;
-
-        &::after {
-          content: "CurseForge";
-        }
-      }
-
-      > .button-github {
-        background: #6e40c9;
-
-        &::after {
-          content: "Github";
-        }
-      }
     }
 
     .progress {
