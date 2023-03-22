@@ -21,7 +21,7 @@
     {text: "MrMelon54", id: "github", url: "https://github.com/MrMelon54", logo: GithubLogo},
     {text: "MrMelon54", id: "patreon", url: "https://patreon.com/MrMelon54", logo: PatreonLogo},
     {text: "MrMelon54", id: "ko-fi", url: "https://ko-fi.com/MrMelon54", logo: KoFiLogo},
-    {text: "MrMelon54", id: "paypal", url: "https://paypal.me/MrMelon54", logo: PaypalLogo},
+    {text: "MrMelon54", id: "paypal", url: "https://www.paypal.me/MrMelon54", logo: PaypalLogo},
     {text: "@MrMelon54", id: "twitter", url: "https://twitter.com/@MrMelon54", logo: TwitterLogo},
     {text: "@melon@techhub.social", id: "mastodon", url: "https://techhub.social/@melon", logo: MastodonLogo},
     {text: "MrMelon54", id: "modrinth", url: "https://modrinth.com/user/MrMelon54", logo: ModrinthLogo},
