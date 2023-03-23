@@ -1,0 +1,48 @@
+.link-buttons .brand-button-wrapper {
+  @mixin friendIcon($bg, $full: false) {
+    color: #000;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @if $full {
+      background-color: $bg;
+    }
+
+    @else {
+      &::before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 44px;
+        right: 0;
+        bottom: 0;
+        background-color: $bg;
+      }
+    }
+
+    >span {
+      z-index: 1;
+      color: #000;
+    }
+  }
+
+  >.button-captainalm {
+    @include friendIcon(#ff9900);
+  }
+
+  >.button-index57 {
+    @include friendIcon(#f1c40f);
+  }
+
+  >.button-shxdedraichu {
+    @include friendIcon(#2ecc71, $full: true);
+  }
+
+  >.button-kikicat123 {
+    @include friendIcon(#00ff00);
+  }
+
+  >.button-carbonghost {
+    @include friendIcon(#e67e22);
+  }
+}

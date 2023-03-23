@@ -1,0 +1,81 @@
+.link-buttons .brand-button-wrapper {
+  >.button-discord {
+    color: #ddd;
+    background: #5865f2;
+  }
+
+  >.button-github {
+    color: #ddd;
+    background: #6e40c9;
+  }
+
+  >.button-patreon {
+    color: #ddd;
+    background: #f1465a;
+  }
+
+  >.button-ko-fi {
+    color: #ddd;
+    background: #29abe0;
+  }
+
+  >.button-paypal {
+    color: #ddd;
+    background: white;
+
+    >span {
+      color: black;
+    }
+  }
+
+  >.button-twitter {
+    color: #ddd;
+    background: #1d9bf0;
+  }
+
+  >.button-mastodon {
+    color: #ddd;
+    background: white;
+
+    >span {
+      color: black;
+    }
+  }
+
+  >.button-modrinth {
+    color: #1bd96a;
+    background: #353535;
+
+    >span {
+      color: #dddddd;
+    }
+  }
+
+  >.button-curseforge {
+    color: #ddd;
+    background: #d34037;
+  }
+
+  >.button-twitch {
+    color: #ddd;
+    background: #9146ff;
+  }
+
+  >.button-youtube {
+    color: #f61c0d;
+    background: white;
+
+    >span {
+      color: black;
+    }
+  }
+
+  >.button-steam {
+    color: #ddd;
+    background: white;
+
+    >span {
+      color: black;
+    }
+  }
+}
