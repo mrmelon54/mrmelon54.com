@@ -38,8 +38,8 @@
   const friends = [
     {name: "CaptainALM", id: "captainalm", url: "https://captainalm.com", logo: "/friends/captainalm.png"},
     {name: "Index57", id: "index57", url: null, logo: "/friends/index57.png"},
-    {name: "ShxdedRaichu", id: "shxdedraichu", url: null, logo: null},
-    {name: "KikiCat123", id: "kikicat123", url: "https://kikicat123.ca", logo: "/friends/kikicat123.png"},
+    {name: "ShxdedRaichu", id: "shxdedraichu", url: null, logo: "/friends/raichu.png"},
+    {name: "Kikicat123", id: "kikicat123", url: "https://kikicat123.ca", logo: "/friends/kikicat123.png"},
     {name: "CarbonGhost", id: "carbonghost", url: "https://prosperitymc.net", logo: "/friends/carbonghost.png"},
   ];
 
