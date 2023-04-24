@@ -24,6 +24,7 @@ export type ModData = {
   discord_url: string;
   donation_urls: Array<DonationItem>;
   gallery: Array<GalleryItem>;
+  game_versions: Array<string>;
 };
 
 export type DonationItem = {

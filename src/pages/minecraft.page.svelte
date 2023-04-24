@@ -6,7 +6,12 @@
   export let __;
 </script>
 
-<MetaTags url={__.urlOriginal} title="Minecraft | MrMelon54.com" description="MrMelon54.com Minecraft" keywords="minecraft,minecraft mod,mrmelon54,modrinth,curseforge,github" />
+<MetaTags
+  url={__.urlOriginal}
+  title="Minecraft | MrMelon54.com"
+  description="MrMelon54.com Minecraft"
+  keywords="minecraft,minecraft mod,mrmelon54,modrinth,curseforge,github"
+/>
 
 <Layout>
   <h1 class="title-text">MrMelon54 Minecraft Projects</h1>
@@ -24,7 +29,7 @@
           <span class="project-item-title">{y.title}</span>
           <span class="flex-gap" />
           <span class="project-item-id">{y.slug}</span>
-          <span class="project-item-id">{y.id}</span>
+          <span class="project-item-id">{y.id} - {y.game_versions[y.game_versions.length - 1]}</span>
         </a>
       {/each}
     </div>

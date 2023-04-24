@@ -54,19 +54,35 @@
       <h1 class="title-text">{modData.title}</h1>
       {#if buttonData}
         <div class="link-buttons">
-          <a class="brand-button button-github" rel="noreferrer" target="_blank" href={buttonData.github} data-text="Github">
-            <GithubLogo />
+          <a href={buttonData.github} class="brand-button-wrapper" rel="noreferrer" target="_blank">
+            <div class="brand-button button-github">
+              <GithubLogo />
+              <span>Source Code</span>
+            </div>
           </a>
-          <a class="brand-button button-modrinth" rel="noreferrer" target="_blank" href={buttonData.modrinth} data-text="Modrinth">
-            <ModrinthLogo />
+          <a href={buttonData.modrinth} class="brand-button-wrapper" rel="noreferrer" target="_blank">
+            <div class="brand-button button-modrinth">
+              <ModrinthLogo />
+              <span>Modrinth</span>
+            </div>
           </a>
-          <a class="brand-button button-curseforge" rel="noreferrer" target="_blank" href={buttonData.curseforge} data-text="CurseForge">
-            <CurseforgeLogo />
+          <a href={buttonData.curseforge} class="brand-button-wrapper" rel="noreferrer" target="_blank">
+            <div class="brand-button button-curseforge">
+              <CurseforgeLogo />
+              <span>CurseForge</span>
+            </div>
           </a>
         </div>
       {:else}
         <div class="buttons-loading" />
       {/if}
+      <div class="game-versions">
+        {#each modData.game_versions as v, i}
+          <a class="version-pill" rel="noreferrer" target="_blank" href="https://modrinth.com/mod/{modData.slug}/version/{modData.versions[i]}">
+            <span>{v}</span>
+          </a>
+        {/each}
+      </div>
       {#await updateData}
         <div class="progress">
           <div class="progress-bar progress-infinite" />
@@ -95,6 +111,7 @@
 
 <style lang="scss">
   @import "../../styles/link-buttons.scss";
+  @import "../../styles/link-buttons-socials.scss";
 
   .mod-meta {
     .title-img {
@@ -163,6 +180,20 @@
 
     :global(.markdown-body) :global(h1:first-child) {
       display: none;
+    }
+  }
+
+  .game-versions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+
+    .version-pill {
+      background: var(--primary-main);
+      padding: 6px 12px;
+      border-radius: 0.5rem;
+      color: var(--primary-text);
     }
   }
 </style>
