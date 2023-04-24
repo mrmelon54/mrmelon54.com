@@ -19,6 +19,7 @@
   import Layout from "~/pages/__layout.svelte";
 
   export let __;
+  export let pageProps;
 
   const socials = [
     {text: "🍉 Melon Planet", id: "discord", url: "https://discord.gg/wKr9eBF", logo: DiscordLogo},
@@ -41,6 +42,7 @@
     {name: "ShxdedRaichu", id: "shxdedraichu", url: "https://remove.directory", logo: "/friends/raichu.png"},
     {name: "Kikicat123", id: "kikicat123", url: "https://kikicat123.ca", logo: "/friends/kikicat123.png"},
     {name: "CarbonGhost", id: "carbonghost", url: "https://prosperitymc.net", logo: "/friends/carbonghost.png"},
+    {name: "Pieman", id: "pieman", url: "https://pieman.dev", logo: "https://pieman.dev/assets/logo.svg"},
   ];
 
   const projects = [

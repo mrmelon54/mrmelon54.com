@@ -35,7 +35,7 @@
   }
 
   >.button-shxdedraichu {
-    @include friendIcon(#2ecc71, $full: true);
+    @include friendIcon(#2ecc71);
   }
 
   >.button-kikicat123 {
@@ -44,5 +44,11 @@
 
   >.button-carbonghost {
     @include friendIcon(#e67e22);
+  }
+
+  >.button-pieman {
+    @include friendIcon(#3b205c, $full: true);
+    background-repeat: no-repeat;
+    background-size: 44px 44px;
   }
 }
