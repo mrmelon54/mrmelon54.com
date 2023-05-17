@@ -16,14 +16,14 @@
   <h1 class="title-text">MrMelon54 KTaNE Projects</h1>
   <ul>
     <li>
-      <a href="https://ktane-fast.mrmelon54.com" target="_blank" rel="noreferrer">KTaNE Fast</a> - a cached version of the KTaNE Repository of Manual Pages
-      for faster loading times
+      <a href="https://ktane-mirror.mrmelon54.com" target="_blank" rel="noreferrer">KTaNE Mirror</a> - a cached version of the KTaNE Repository of Manual
+      Pages for faster loading times.
     </li>
     <li>
-      <a href="https://ktane-ideas.mrmelon54.com" target="_blank" rel="noreferrer">KTaNE Mod Ideas</a>
+      <a href="https://ktane-ideas.mrmelon54.com" target="_blank" rel="noreferrer">KTaNE Mod Ideas</a> - displays mod ideas from the mod idea spreadsheet.
     </li>
     <li>
-      <a href="https://ktane-iconic-editor.mrmelon54.com" target="_blank" rel="noreferrer">KTaNE Iconic Editor</a>
+      <a href="https://ktane-iconic-editor.mrmelon54.com" target="_blank" rel="noreferrer">KTaNE Iconic Editor</a> - new fancy editor for Iconic mod development.
     </li>
     <li>
       <a href="https://ktane.mrmelon54.com/iconic-string-generator" target="_blank" rel="noreferrer">Iconic String Generator (Deprecated)</a>
