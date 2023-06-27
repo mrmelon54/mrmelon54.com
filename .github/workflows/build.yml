@@ -1,6 +1,6 @@
 name: Build/release
 
-on: push
+on: [ push ]
 
 jobs:
   release:
@@ -20,7 +20,7 @@ jobs:
 
       - name: Archive
         run: tar -czvf mrmelon54.com.tar.gz -C ./dist/client .
-      
+
       - name: Test
         run: tar -tzvf mrmelon54.com.tar.gz
 
