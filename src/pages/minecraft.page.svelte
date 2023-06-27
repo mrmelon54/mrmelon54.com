@@ -18,10 +18,6 @@
   {#if $modStore instanceof Error}
     <div class="projects-loading">{$modStore.message}</div>
   {:else if $modStore}
-    <ul>
-      <li><a href="/minecraft/crafting">Crafting screenshot generator</a></li>
-    </ul>
-    <h2>Mods</h2>
     <div class="projects">
       {#each $modStore.projects as y}
         <a href="/minecraft/{y.slug}" class="project-item">
