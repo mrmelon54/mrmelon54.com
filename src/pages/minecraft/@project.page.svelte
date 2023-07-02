@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type {ModData} from "~/api/modrinth";
+  import type {ModData, VersionData} from "~/api/modrinth";
   import type {Project} from "~/api/timeline";
   import type {ButtonData} from "~/api/button";
   import LazyComponent from "~/lib/LazyComponent.svelte";
@@ -17,6 +17,7 @@
   let modData: ModData;
   let buttonData: ButtonData;
   let updateData: Promise<Project> = new Promise((res, rej) => {});
+  let versionData: Promise<VersionData[]> = new Promise((res, rej) => {});
 
   onMount(() => {
     updateData = new Promise((res, rej) => {
@@ -33,11 +34,77 @@
     } else if (x) {
       modData = x.projectsSlugMap[__.routeParams.project];
       buttonData = modData ? x.modAlias[modData.id] : null;
+      versionData = new Promise((res, rej) => {
+        fetch(`https://api.modrinth.com/v2/versions?ids=${JSON.stringify(modData.versions)}`)
+          .then(resp => res(resp.json()))
+          .catch(err => rej(err));
+      });
     } else {
       modData = null;
       buttonData = null;
     }
   });
+
+  type Version = {type: "version"; value: number[]};
+
+  type Range = {type: "range"; min: number[]; max: number[]};
+
+  function parseVersion(a: string): Version {
+    let v = a.split(".").map(x => parseInt(x));
+    if (v.length == 2) v.push(0);
+    return {type: "version", value: v};
+  }
+
+  function mergeVersions(a: Version | Range, b: Version): Range {
+    if (a.type === "version") {
+      let z = [...a.value];
+      z[z.length - 1]++;
+      if (arrayEquals(z, b.value)) return {type: "range", min: a.value, max: b.value};
+    } else if (a.type === "range") {
+      let z = [...a.max];
+      z[z.length - 1]++;
+      if (arrayEquals(z, b.value)) return {type: "range", min: a.min, max: b.value};
+    }
+    return null;
+  }
+
+  function squashVersions(a: Version[]): Array<Version | Range> {
+    if (a.length == 0) return [];
+    let out: Array<Version | Range> = [];
+    let z: Version | Range = a[0];
+    for (let i = 1; i < a.length; i++) {
+      let m = mergeVersions(z, a[i]);
+      if (m == null) {
+        out.push(z);
+        z = a[i];
+      } else {
+        z = m;
+      }
+    }
+    out.push(z);
+    return out;
+  }
+
+  function renderGameVersions(a: string[]) {
+    let b = a.map(x => parseVersion(x));
+    if (b.length == 0) return "";
+    let squash = squashVersions(b);
+    return squash.map(x => renderVersion(x)).join(", ");
+  }
+
+  function renderVersion(a: Version | Range): string {
+    if (a.type === "version") {
+      if (a.value[a.value.length - 1] === 0) a.value.splice(a.value.length - 1, 1);
+      return a.value.map(x => x.toString()).join(".");
+    } else if (a.type === "range") {
+      return renderVersion({type: "version", value: a.min}) + " - " + renderVersion({type: "version", value: a.max});
+    }
+    return "unknown";
+  }
+
+  function arrayEquals(a, b) {
+    return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((val, index) => val === b[index]);
+  }
 </script>
 
 <MetaTags
@@ -52,6 +119,10 @@
     <div class="mod-meta">
       <img class="title-img" src={modData.icon_url} alt={modData.title} />
       <h1 class="title-text">{modData.title}</h1>
+      <div class="platform-text">
+        <div>Modrinth ID: {buttonData.id}</div>
+        <div>CurseForge ID: {buttonData.cfId}</div>
+      </div>
       {#if buttonData}
         <div class="link-buttons">
           <a href={buttonData.github} class="brand-button-wrapper" rel="noreferrer" target="_blank">
@@ -77,11 +148,15 @@
         <div class="buttons-loading" />
       {/if}
       <div class="game-versions">
-        {#each modData.game_versions as v, i}
-          <a class="version-pill" rel="noreferrer" target="_blank" href="https://modrinth.com/mod/{modData.slug}/version/{modData.versions[i]}">
-            <span>{v}</span>
-          </a>
-        {/each}
+        {#await versionData then w}
+          {#each w as v, i}
+            <a class="version-pill" rel="noreferrer" target="_blank" href="https://modrinth.com/mod/{modData.slug}/version/{v.id}">
+              <span>{renderGameVersions(v.game_versions)}</span>
+            </a>
+          {/each}
+        {:catch}
+          <div data-text="No version data" />
+        {/await}
       </div>
       {#await updateData}
         <div class="progress">
@@ -99,6 +174,8 @@
             </div>
           </div>
         </div>
+      {:catch}
+        <div data-text="No update data" />
       {/await}
     </div>
     <div class="body-text">
@@ -125,9 +202,13 @@
     }
 
     .title-text {
-      margin: 0 0 24px 0;
+      margin: 0 0 16px 0;
       font-size: 3.2em;
       line-height: 1.1;
+    }
+
+    .platform-text {
+      margin: 0 0 16px 0;
     }
 
     .progress {

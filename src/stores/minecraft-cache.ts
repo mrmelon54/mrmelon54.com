@@ -13,6 +13,7 @@ export interface ModStoreItem {
   id: string;
   github: string;
   modrinth: string;
+  cfId: string;
   curseforge: string;
 }
 

@@ -40,3 +40,10 @@ export type GalleryItem = {
   description: string;
   created: Date;
 };
+
+export type VersionData = {
+  id: string;
+  version_number: string;
+  game_versions: Array<string>;
+  loaders: Array<string>;
+};
