@@ -43,6 +43,7 @@
     {name: "Kikicat123", id: "kikicat123", url: "https://kikicat123.ca", logo: "/friends/kikicat123.png"},
     {name: "CarbonGhost", id: "carbonghost", url: "https://prosperitymc.net", logo: "/friends/carbonghost.png"},
     {name: "Pieman", id: "pieman", url: "https://pieman.dev", logo: "https://pieman.dev/assets/logo.svg"},
+    {name: "Qkrisi", id: "qkrisi", url: null, logo: "/friends/qkrisi.png"},
   ];
 
   const projects = [
