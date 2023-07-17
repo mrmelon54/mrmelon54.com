@@ -51,4 +51,8 @@
     background-repeat: no-repeat;
     background-size: 44px 44px;
   }
+
+  >.button-qkrisi {
+    @include friendIcon(#ffffff);
+  }
 }
