@@ -50,35 +50,3 @@ a {
     }
   }
 }
-
-@mixin melonButton($bg, $hover, $text, $curve) {
-  border-radius: $curve;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: $bg;
-  color: $text;
-  cursor: pointer;
-  transition: background-color 0.25s;
-
-  &:hover {
-    background-color: $hover;
-  }
-
-  &:focus,
-  &:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-}
-
-button.primary,
-a.button.primary {
-  @include melonButton(var(--secondary-main), var(--secondary-hover), var(--primary-text), 1em);
-}
-
-button.secondary,
-a.button.secondary {
-  @include melonButton(var(--secondary-main), var(--secondary-hover), var(--primary-text), 1em);
-}

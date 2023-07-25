@@ -22,8 +22,6 @@
 </header>
 
 <style lang="scss">
-  @import "../styles/app.scss";
-
   header {
     display: flex;
     align-items: center;

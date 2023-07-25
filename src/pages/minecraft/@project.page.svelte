@@ -188,7 +188,6 @@
 
 <style lang="scss">
   @import "../../styles/link-buttons.scss";
-  @import "../../styles/link-buttons-socials.scss";
 
   .mod-meta {
     .title-img {
