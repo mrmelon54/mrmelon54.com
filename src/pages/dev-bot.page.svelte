@@ -5,7 +5,7 @@
   export let __;
 </script>
 
-<MetaTags url={__.urlOriginal} title="Dev Bot | MrMelon54.com" description="MrMelon54.com Dev Bot" keywords="dev bot,melondevbot,melon dev bot,github,commit,auto commit" />
+<MetaTags url={__.urlOriginal} title="Dev Bot | MrMelon54" description="MrMelon54.com Dev Bot" keywords="dev bot,melondevbot,melon dev bot,github,commit,auto commit" />
 
 <Layout>
   <h1 class="title-text">Melon Dev Bot</h1>

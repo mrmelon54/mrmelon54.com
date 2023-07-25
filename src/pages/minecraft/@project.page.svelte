@@ -109,7 +109,7 @@
 
 <MetaTags
   url={__.urlOriginal}
-  title={(modData ? `${modData.title} | ` : "") + "Minecraft | MrMelon54.com"}
+  title={(modData ? `${modData.title} | ` : "") + "Minecraft | MrMelon54"}
   description=""
   keywords="minecraft,minecraft mod,{__.routeParams.project}"
 />

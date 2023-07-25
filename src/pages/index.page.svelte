@@ -54,7 +54,7 @@
   ];
 </script>
 
-<MetaTags url={__.urlOriginal} title="MrMelon54.com" description="MrMelon54.com Home Page" keywords="" />
+<MetaTags url={__.urlOriginal} title="MrMelon54" description="MrMelon54.com Home Page" keywords="" />
 
 <svelte:head>
   <link href="https://techhub.social/@melon" rel="me" />
@@ -66,7 +66,7 @@
       <img src="/melon.svg" class="logo" alt="Melon Logo" />
     </a>
   </div>
-  <h1 class="title-text">MrMelon54.com</h1>
+  <h1 class="title-text">MrMelon54</h1>
 
   <p class="coming-soon">Coming soon to an internet server near you.</p>
 

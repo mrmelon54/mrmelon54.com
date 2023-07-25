@@ -8,8 +8,8 @@
 
 <MetaTags
   url={__.urlOriginal}
-  title="Minecraft | MrMelon54.com"
-  description="MrMelon54.com Minecraft"
+  title="Minecraft | MrMelon54"
+  description="MrMelon54 Minecraft"
   keywords="minecraft,minecraft mod,mrmelon54,modrinth,curseforge,github"
 />
 

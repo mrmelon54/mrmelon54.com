@@ -9,19 +9,21 @@
     {:else}
       <a class="home-link" href="/">
         <img src="/melon.svg" alt="Melon Logo" />
-        <h1>MrMelon54.com</h1>
+        <h1>MrMelon54</h1>
       </a>
     {/if}
 
     <nav>
-      <a href={import.meta.env.VITE_URL_ID} rel="noreferrer" target="_blank">ID</a>
-      <a href="/minecraft">Minecraft</a>
-      <a href="/ktane">KTaNE</a>
+      <a class="nav-link" href={import.meta.env.VITE_URL_ID} rel="noreferrer" target="_blank">ID</a>
+      <a class="nav-link" href="/minecraft">Minecraft</a>
+      <a class="nav-link" href="/ktane">KTaNE</a>
     </nav>
   </div>
 </header>
 
 <style lang="scss">
+  @import "../styles/app.scss";
+
   header {
     display: flex;
     align-items: center;
@@ -44,36 +46,59 @@
       max-width: min(100%, 1000px);
       margin: auto;
 
-      :global(a) {
-        color: #eeeeee;
-        line-height: 50px;
-        height: 50px;
+      nav {
+        display: flex;
+      }
+    }
+  }
 
-        &:hover {
-          color: #ffffff;
-        }
+  a.nav-link {
+    display: block;
+    color: #eeeeee;
+    padding: 0 0.9em;
+    line-height: 50px;
+    height: 50px;
+    position:relative;
+    transition: background-color 0.25s ease-out;
 
-        &.home-link {
-          display: flex;
-          align-items: center;
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #eeeeee;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out, background-color 0.25s ease-out;
+    }
 
-          > h1 {
-            font-size: 26px;
-            margin: 0;
-          }
+    &:hover {
+      color: #ffffff;
+    }
 
-          > img {
-            width: 32px;
-            height: 32px;
-            margin-right: 16px;
-            -webkit-filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
-            filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
-          }
-        }
+    &:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+      background-color: #ffffff;
+    }
+
+    &.home-link {
+      display: flex;
+      align-items: center;
+
+      > h1 {
+        font-size: 26px;
+        margin: 0;
       }
 
-      > nav > :global(a) {
-        padding: 8px;
+      > img {
+        width: 32px;
+        height: 32px;
+        margin-right: 16px;
+        -webkit-filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
+        filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
       }
     }
   }

@@ -7,8 +7,8 @@
 
 <MetaTags
   url={__.urlOriginal}
-  title="KTaNE | MrMelon54.com"
-  description="MrMelon54.com KTaNE Projects"
+  title="KTaNE | MrMelon54"
+  description="MrMelon54 KTaNE Projects"
   keywords="ktane,keep talking and nobody explodes"
 />
 
