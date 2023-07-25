@@ -55,14 +55,15 @@
   a.nav-link {
     display: block;
     color: #eeeeee;
-    padding: 0 0.9em;
+    padding: 0 0.6em;
     line-height: 50px;
+    font-size: 1.2em;
     height: 50px;
-    position:relative;
+    position: relative;
     transition: background-color 0.25s ease-out;
 
     &:after {
-      content: '';
+      content: "";
       border-radius: 1px;
       position: absolute;
       transform: scaleX(0);
@@ -84,23 +85,28 @@
       transform-origin: bottom middle;
       background-color: #ffffff;
     }
+  }
 
-    &.home-link {
-      display: flex;
-      align-items: center;
+  a.home-link {
+    color: #eeeeee;
+    display: flex;
+    align-items: center;
 
-      > h1 {
-        font-size: 26px;
-        margin: 0;
-      }
+    &:hover {
+      color: #ffffff;
+    }
 
-      > img {
-        width: 32px;
-        height: 32px;
-        margin-right: 16px;
-        -webkit-filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
-        filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
-      }
+    > h1 {
+      font-size: 26px;
+      margin: 0;
+    }
+
+    > img {
+      width: 32px;
+      height: 32px;
+      margin-right: 16px;
+      -webkit-filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
+      filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
     }
   }
 </style>
