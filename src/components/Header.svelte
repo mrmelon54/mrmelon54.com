@@ -63,14 +63,15 @@
 
     &:after {
       content: '';
+      border-radius: 1px;
       position: absolute;
-      width: 100%;
       transform: scaleX(0);
       height: 2px;
-      bottom: 0;
-      left: 0;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
       background-color: #eeeeee;
-      transform-origin: bottom right;
+      transform-origin: bottom middle;
       transition: transform 0.25s ease-out, background-color 0.25s ease-out;
     }
 
@@ -80,7 +81,7 @@
 
     &:hover:after {
       transform: scaleX(1);
-      transform-origin: bottom left;
+      transform-origin: bottom middle;
       background-color: #ffffff;
     }
 
