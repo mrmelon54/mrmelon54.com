@@ -47,7 +47,12 @@
   let showDeprecated: boolean = false;
 </script>
 
-<MetaTags url={__.urlOriginal} title="KTaNE | MrMelon54" description="MrMelon54 KTaNE Projects" keywords="ktane,keep talking and nobody explodes" />
+<MetaTags
+  url={__.urlOriginal}
+  title="MrMelon54 KTaNE Projects"
+  description="Projects made by MrMelon54 for Keep Talking and Nobody Explodes"
+  keywords="ktane,keep talking and nobody explodes,mrmelon54"
+/>
 
 <Layout>
   <h1 class="title-text">MrMelon54 KTaNE Projects</h1>
@@ -92,6 +97,12 @@
       width: calc((600px - 4rem - 16px) * 0.5);
       align-self: stretch;
 
+      @media (max-width: 600px) {
+        & {
+          width: 100%;
+        }
+      }
+
       display: flex;
       flex-direction: column;
       background: var(--bg-panel);
@@ -117,12 +128,6 @@
 
       > .flex-gap {
         flex-grow: 1;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .project-item {
-        width: 100%;
       }
     }
   }
