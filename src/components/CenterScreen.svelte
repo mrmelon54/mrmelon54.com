@@ -14,7 +14,7 @@
     box-sizing: border-box;
 
     > .center-screen {
-      max-width: min(100%, 1280px);
+      max-width: min(100%, 2560px);
       margin: 0 auto;
       padding: 2rem;
       text-align: center;

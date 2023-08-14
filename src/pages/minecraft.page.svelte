@@ -8,24 +8,27 @@
 
 <MetaTags
   url={__.urlOriginal}
-  title="Minecraft | MrMelon54"
-  description="MrMelon54 Minecraft"
+  title="MrMelon54 Minecraft Projects"
+  description="Projects made by MrMelon54 for Minecraft"
   keywords="minecraft,minecraft mod,mrmelon54,modrinth,curseforge,github"
 />
 
 <Layout>
-  <h1 class="title-text">MrMelon54 Minecraft Projects</h1>
+  <h1 class="title-text">Minecraft Projects</h1>
   {#if $modStore instanceof Error}
     <div class="projects-loading">{$modStore.message}</div>
   {:else if $modStore}
     <div class="projects">
       {#each $modStore.projects as y}
         <a href="/minecraft/{y.slug}" class="project-item">
-          <img src={y.icon_url} alt={y.title} />
-          <span class="project-item-title">{y.title}</span>
-          <span class="flex-gap" />
-          <span class="project-item-id">{y.slug}</span>
-          <span class="project-item-id">{y.id} - {y.game_versions[y.game_versions.length - 1]}</span>
+          <div class="project-item-icon">
+            <img src={y.icon_url} alt={y.title} />
+          </div>
+          <div class="project-item-details">
+            <span class="project-item-title">{y.title}</span>
+            <span class="project-item-id">{y.slug}</span>
+            <span class="project-item-id">{y.id} - {y.game_versions[y.game_versions.length - 1]}</span>
+          </div>
         </a>
       {/each}
     </div>
@@ -42,51 +45,70 @@
   }
 
   .projects {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 16px;
+    justify-content: center;
+    position: relative;
 
-    @media (max-width: 800px) {
-      & {
-        grid-template-columns: repeat(3, 1fr);
+    .project-item {
+      width: calc((800px - 4rem - 16px) * 0.5);
+      align-self: stretch;
+
+      @media (max-width: 800px) {
+        & {
+          width: 100%;
+        }
       }
-    }
 
-    @media (max-width: 600px) {
-      & {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    > .project-item {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       background: var(--bg-panel);
       border-radius: 16px;
       -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
       -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
       box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
 
-      > .project-item-id {
-        font-size: 90%;
-        padding: 0 8px 8px 8px;
-        color: gray;
+      .project-item-icon {
+        width: 96px;
+        height: 96px;
+        margin: 8px;
+
+        img {
+          aspect-ratio: 1/1;
+          width: 100%;
+          border-radius: 16px;
+        }
       }
 
-      > .project-item-title {
-        padding: 16px 16px 8px 16px;
-        color: var(--primary-text);
-      }
-
-      > .flex-gap {
+      .project-item-details {
+        display: flex;
+        flex-direction: column;
         flex-grow: 1;
+        text-align: left;
+
+        > .project-item-id {
+          font-size: 90%;
+          padding: 0 8px 4px 8px;
+          color: gray;
+        }
+
+        > .project-item-title {
+          padding: 16px 16px 4px 8px;
+          color: var(--primary-text);
+        }
+
+        > .flex-gap {
+          flex-grow: 1;
+        }
       }
 
-      > img {
-        aspect-ratio: 1/1;
-        width: 100%;
-        margin: auto;
-        border-radius: 16px;
+      @media (min-width: 3200px) {
+        &:last-child {
+          position: absolute;
+          bottom: 0;
+          right: -248px;
+        }
       }
     }
   }
