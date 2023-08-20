@@ -19,10 +19,10 @@ jobs:
       - run: yarn build
 
       - name: Archive
-        run: tar -czvf mrmelon54.com.tar.gz -C ./dist/client .
+        run: tar -czvf upload.tar.gz -C ./dist/client .
 
       - name: Test
-        run: tar -tzvf mrmelon54.com.tar.gz
+        run: tar -tzvf upload.tar.gz
 
       - name: Release
-        run: 'curl -X POST -H "Authorization: Bearer ${{ secrets.DEPLOY }}" -F "upload=@mrmelon54.com.tar.gz" "https://sites.mrmelon54.com/u?site=mrmelon54.com&branch=${{ github.ref_name }}"'
+        run: 'curl -X POST -H "Authorization: Bearer ${{ secrets.DEPLOY }}" -F "upload=@upload.tar.gz" "https://sites.1f349.net/u?site=mrmelon54.com&branch=${{ github.ref_name }}"'
