@@ -31,6 +31,7 @@ export const modStore = writable<ModStore | Error | null>(
             projectsIdMap[e.id] = e;
             projectsSlugMap[e.slug] = e;
           });
+          projects.sort((a: ModData, b: ModData) => a.title.localeCompare(b.title));
           modStore.set({projects, projectsIdMap, projectsSlugMap, modAlias});
         })
         .catch(e => modStore.set(e));
