@@ -14,7 +14,8 @@
     {/if}
 
     <nav>
-      <a class="nav-link" href={import.meta.env.VITE_URL_ID} rel="noreferrer" target="_blank">ID</a>
+      <a class="nav-link" href="https://status.mrmelon54.com" rel="noreferrer" target="_blank">Status</a>
+      <a class="nav-link" href="https://id.mrmelon54.com" rel="noreferrer" target="_blank">ID</a>
       <a class="nav-link" href="/minecraft">Minecraft</a>
       <a class="nav-link" href="/ktane">KTaNE</a>
     </nav>

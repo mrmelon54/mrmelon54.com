@@ -21,7 +21,7 @@
 
   onMount(() => {
     updateData = new Promise((res, rej) => {
-      fetch(`${import.meta.env.VITE_TIMELINE_API}/project/minecraft/${__.routeParams.project}`)
+      fetch(`https://api.mrmelon54.com/v1/timeline/project/minecraft/${__.routeParams.project}`)
         .then(resp => res(resp.json()))
         .catch(err => rej(err));
     });
