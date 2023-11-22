@@ -57,8 +57,10 @@
 <Layout>
   <h1 class="title-text">MrMelon54 KTaNE Projects</h1>
   <div class="projects-toggle">
-    <input type="checkbox" name="deprecated" bind:checked={showDeprecated} />
-    <label for="deprecated">Show deprecated projects</label>
+    <label>
+      <input type="checkbox" name="deprecated" bind:checked={showDeprecated} />
+      <span>Show deprecated projects</span>
+    </label>
   </div>
   <div class="projects">
     {#each ktaneProjects as y}
