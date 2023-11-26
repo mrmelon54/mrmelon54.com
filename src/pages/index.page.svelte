@@ -88,29 +88,16 @@
     <h2>Friends</h2>
     <div class="link-buttons">
       {#each friends as friend}
-        {#if friend.url != null}
-          <a href={friend.url} class="brand-button-wrapper" rel="noreferrer" target="_blank">
-            <div class="brand-button button-{friend.id}" style={`background-image:url("${friend.logo}");`}>
-              {#if friend.logo === null}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1">
-                  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-size="0.8em">{friend.name[0]}</text>
-                </svg>
-              {/if}
-              <span>{friend.name}</span>
-            </div>
-          </a>
-        {:else}
-          <div class="brand-button-wrapper">
-            <div class="brand-button button-{friend.id}" style={`background-image:url("${friend.logo}");`}>
-              {#if friend.logo === null}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1">
-                  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-size="0.8em" fill="currentColor">{friend.name[0]}</text>
-                </svg>
-              {/if}
-              <span>{friend.name}</span>
-            </div>
+        <svelte:element this={friend.url != null ? "a" : "span"} href={friend.url} class="brand-button-wrapper" rel="noreferrer" target="_blank">
+          <div class="brand-button button-{friend.id}" style={`background-image:url("${friend.logo}");`}>
+            {#if friend.logo === null}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1">
+                <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-size="0.8em">{friend.name[0]}</text>
+              </svg>
+            {/if}
+            <span>{friend.name}</span>
           </div>
-        {/if}
+        </svelte:element>
       {/each}
     </div>
   </div>
