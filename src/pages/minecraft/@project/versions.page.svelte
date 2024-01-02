@@ -145,6 +145,7 @@
     <div class="body-tabs">
       <a href="/minecraft/{__.routeParams.project}">Description</a>
       <a href="/minecraft/{__.routeParams.project}/versions" class="selected">Versions</a>
+      <a href="/minecraft/{__.routeParams.project}/about">About</a>
     </div>
     <div class="game-versions">
       {#await versionData then w}

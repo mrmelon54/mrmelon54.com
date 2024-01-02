@@ -71,12 +71,17 @@
       {/if}
     </div>
     <div class="body-tabs">
-      <a href="/minecraft/{__.routeParams.project}" class="selected">Description</a>
+      <a href="/minecraft/{__.routeParams.project}">Description</a>
       <a href="/minecraft/{__.routeParams.project}/versions">Versions</a>
-      <a href="/minecraft/{__.routeParams.project}/about">About</a>
+      <a href="/minecraft/{__.routeParams.project}/about" class="selected">About</a>
     </div>
-    <div class="body-text">
-      <LazyComponent component={() => import("~/components/Markdown.svelte")} delayMs={500} source={modData.body}>Loading...</LazyComponent>
+    <div class="mod-meta">
+      {#if buttonData}
+        <div class="platform-text">
+          <div>Modrinth ID: {buttonData.modrinth.id}</div>
+          <div>CurseForge ID: {buttonData.curseforge.id}</div>
+        </div>
+      {/if}
     </div>
   {:else}
     <div class="projects-loading" />
@@ -84,7 +89,7 @@
 </Layout>
 
 <style lang="scss">
-  @import "../../styles/link-buttons.scss";
+  @import "../../../styles/link-buttons.scss";
 
   .mod-meta {
     .title-img {
