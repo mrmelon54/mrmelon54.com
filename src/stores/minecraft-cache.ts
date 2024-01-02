@@ -1,28 +1,23 @@
 import {writable} from "svelte/store";
 import {PromiseAllUnique} from "~/utils/promise-all-unique";
 import type {ModData} from "~/api/modrinth";
+import type { McUploadItem } from "~/api/mc-upload";
 
 export interface ModStore {
   projects: ModData[];
   projectsIdMap: Map<string, ModData>;
   projectsSlugMap: Map<string, ModData>;
-  modAlias: Map<string, ModStoreItem>;
+  modAlias: Map<string, McUploadItem>;
 }
 
-export interface ModStoreItem {
-  id: string;
-  github: string;
-  modrinth: string;
-  cfId: string;
-  curseforge: string;
-}
+
 
 export const modStore = writable<ModStore | Error | null>(
   (() => {
     (() => {
       PromiseAllUnique([
         fetch("https://api.modrinth.com/v2/user/mrmelon54/projects").then(resp => resp.json()),
-        fetch("https://cdn.mrmelon54.com/assets/minecraft/mods.json").then(resp => resp.json()),
+        fetch("https://api.mrmelon54.com/v1/mc-upload/summary").then(resp => resp.json()),
       ])
         .then(([projects, modAlias]) => {
           let projectsIdMap: Map<string, ModData> = new Map();

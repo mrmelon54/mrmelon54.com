@@ -1,7 +1,7 @@
 <script lang="ts">
   import {navigate} from "vite-plugin-ssr/client/router";
   import MetaTags from "~/components/MetaTags.svelte";
-  import Layout from "./__layout.svelte";
+  import Layout from "~/pages/__layout.svelte";
 
   export let __;
   export let pageProps;

@@ -64,7 +64,7 @@
       display: flex;
       flex-direction: row;
       background: var(--bg-panel);
-      border-radius: 16px;
+      border-radius: 14px;
       -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
       -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
       box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
@@ -77,7 +77,7 @@
         img {
           aspect-ratio: 1/1;
           width: 100%;
-          border-radius: 16px;
+          border-radius: calc(100% / 16);
         }
       }
 

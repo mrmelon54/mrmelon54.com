@@ -9,7 +9,7 @@
 <div id="app-router">
   <Header {isHome} />
   <main>
-    <CenterScreen>
+    <CenterScreen noCenter={!isHome}>
       <slot />
     </CenterScreen>
   </main>
