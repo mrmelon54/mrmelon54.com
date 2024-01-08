@@ -102,14 +102,6 @@
           flex-grow: 1;
         }
       }
-
-      @media (min-width: 3200px) {
-        &:last-child {
-          position: absolute;
-          bottom: 0;
-          right: -248px;
-        }
-      }
     }
   }
 </style>
