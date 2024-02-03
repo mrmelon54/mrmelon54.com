@@ -93,7 +93,7 @@
 
   .mod-meta {
     .title-img {
-      width: max(25%, 100px);
+      width: max(200px, 15%);
       aspect-ratio: 1/1;
       border-radius: calc(100% / 16);
       margin-bottom: 32px;
