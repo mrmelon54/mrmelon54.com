@@ -32,13 +32,13 @@
     },
     {
       name: "Iconic String Generator",
-      href: "https://ktane.mrmelon54.com/iconic-string-generator",
+      href: "https://ktane-old.mrmelon54.com/iconic-string-generator",
       description: "Old editor for Iconic mod development.",
       deprecated: true,
     },
     {
       name: "Live Manual Editor",
-      href: "https://ktane.mrmelon54.com/live-manual-editor",
+      href: "https://ktane-old.mrmelon54.com/live-manual-editor",
       description: "",
       deprecated: true,
     },
