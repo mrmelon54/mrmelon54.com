@@ -2,16 +2,12 @@
   export let isHome: boolean = false;
 </script>
 
-<header>
+<header class:isHome>
   <div class="central-header">
-    {#if isHome}
-      <span />
-    {:else}
-      <a class="home-link" href="/">
-        <img src="/melon.svg" alt="Melon Logo" />
-        <h1>MrMelon54</h1>
-      </a>
-    {/if}
+    <a class="home-link" href="/">
+      <img src="/melon.svg" alt="Melon Logo" />
+      <h1>MrMelon54</h1>
+    </a>
 
     <nav>
       <a class="nav-link" href="https://status.mrmelon54.com" rel="noreferrer" target="_blank">Status</a>
@@ -33,6 +29,10 @@
     max-height: 50px;
     background-color: var(--primary-main);
     border-radius: 0 0 var(--large-curve) var(--large-curve);
+
+    &.isHome {
+      display: none;
+    }
 
     > .central-header {
       padding: 0 32px;
