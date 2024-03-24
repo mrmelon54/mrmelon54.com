@@ -1,7 +1,7 @@
 <script lang="ts">
-  import GlassBacking from "~/components/GlassBacking.svelte";
+  import CodeBacking from "~/components/CodeBacking.svelte";
   import MetaTags from "~/components/MetaTags.svelte";
-  import Layout from "~/pages/__layout.svelte";
+  import "~/styles/app.scss";
 
   export let __;
   export let pageProps;
@@ -13,20 +13,13 @@
   <link href="https://techhub.social/@melon" rel="me" />
 </svelte:head>
 
-<Layout isHome={true}>
-  <GlassBacking />
+<div>
+  <div class="code-backing">
+    <CodeBacking />
+  </div>
 
-  <svg width="0" height="0">
-    <defs>
-      <clipPath id="myClip">
-        <circle cx="5" cy="5" r="5" />
-        <circle cx="calc(100% - 5)" cy="60" r="40" />
-      </clipPath>
-    </defs>
-  </svg>
-
-  <div class="central-box">
-    <div class="central-title">
+  <div class="index-align">
+    <div class="central-box">
       <div class="title-logo">
         <a href="https://mrmelon54.com">
           <img src="/melon.svg" class="logo" alt="Melon Logo" />
@@ -45,27 +38,40 @@
     <a href="https://status.mrmelon54.com">Status</a>
     <a href="https://1f349.com">1f349.com</a>
   </div>
-</Layout>
+</div>
 
 <style lang="scss">
   $logoSize: 10em;
   $logoPadding: 1.5em;
   $logoArea: calc($logoSize + $logoPadding * 2);
-  $titleBackdrop: 200px;
 
-  .central-box {
-    border: 10px solid;
-    border-image-slice: 1;
-    border-width: 5px;
-    border-image-source: linear-gradient(black, black), radial-gradient(circle at bottom, #141414 0%, #5f5f5f 100%);
-    margin-inline: auto;
-    width: fit-content;
-    border-radius: 4em;
-    box-sizing: border-box;
-    overflow: hidden;
+  .code-backing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
   }
 
-  .central-title {
+  .index-align {
+    margin: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1.618fr;
+    grid-template-rows: 1fr auto 1.618fr;
+  }
+
+  .central-box {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
+    grid-column: 2;
+    grid-row: 2;
     display: grid;
     grid-template-areas:
       "logo title"
@@ -74,10 +80,7 @@
     grid-template-rows: 1fr 1fr;
     row-gap: 1em;
     width: fit-content;
-    margin-inline: auto;
     padding: 2em;
-    backdrop-filter: blur($titleBackdrop);
-    -webkit-backdrop-filter: blur($titleBackdrop);
   }
 
   .title-logo {
@@ -96,7 +99,7 @@
 
   .title-text {
     grid-area: title;
-    margin: auto 0 0 0;
+    margin: auto 0.5em 0 0.5em;
     font-size: 3.2em;
     line-height: 1.1;
   }
@@ -117,11 +120,17 @@
   }
 
   .corner-buttons {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px 0 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-width: 1px 0 0 1px;
+
     position: fixed;
     right: 0;
     bottom: 0;
     display: flex;
-    backdrop-filter: blur(1000px);
 
     > a {
       font-size: 1em;
