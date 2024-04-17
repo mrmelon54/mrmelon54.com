@@ -43,26 +43,17 @@
       <h1 class="title-text">{modData.title}</h1>
       {#if buttonData}
         <div class="link-buttons">
-          <a href={buttonData.github} class="brand-button-wrapper" rel="noreferrer" target="_blank">
-            <div class="brand-button button-github">
-              <GithubLogo />
-              <span>Source Code</span>
-            </div>
+          <a href={buttonData.github} class="brand-button button-github" rel="noreferrer" target="_blank">
+            <GithubLogo />
           </a>
           {#if buttonData.modrinth}
-            <a href={buttonData.modrinth.url} class="brand-button-wrapper" rel="noreferrer" target="_blank">
-              <div class="brand-button button-modrinth">
-                <ModrinthLogo />
-                <span>Modrinth</span>
-              </div>
+            <a href={buttonData.modrinth.url} class="brand-button button-modrinth" rel="noreferrer" target="_blank">
+              <ModrinthLogo />
             </a>
           {/if}
           {#if buttonData.curseforge}
-            <a href={buttonData.curseforge.url} class="brand-button-wrapper" rel="noreferrer" target="_blank">
-              <div class="brand-button button-curseforge">
-                <CurseforgeLogo />
-                <span>CurseForge</span>
-              </div>
+            <a href={buttonData.curseforge.url} class="brand-button button-curseforge" rel="noreferrer" target="_blank">
+              <CurseforgeLogo />
             </a>
           {/if}
         </div>
@@ -84,7 +75,7 @@
 </Layout>
 
 <style lang="scss">
-  @import "../../styles/link-buttons.scss";
+  @import "../../styles/link-buttons-socials.scss";
 
   .mod-meta {
     .title-img {

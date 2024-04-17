@@ -1,81 +1,64 @@
-.link-buttons .brand-button-wrapper {
-  >.button-discord {
+@import "./link-buttons.scss";
+@import "./link-buttons.scss";
+
+.link-buttons .brand-button {
+  &.button-discord {
     color: #ddd;
     background: #5865f2;
   }
 
-  >.button-github {
+  &.button-github {
     color: #ddd;
     background: #6e40c9;
   }
 
-  >.button-patreon {
+  &.button-patreon {
     color: #ddd;
     background: #f1465a;
   }
 
-  >.button-ko-fi {
+  &.button-ko-fi {
     color: #ddd;
     background: #29abe0;
   }
 
-  >.button-paypal {
+  &.button-paypal {
     color: #ddd;
     background: white;
-
-    >span {
-      color: black;
-    }
   }
 
-  >.button-twitter {
+  &.button-twitter {
     color: #ddd;
     background: #1d9bf0;
   }
 
-  >.button-mastodon {
+  &.button-mastodon {
     color: #ddd;
     background: white;
-
-    >span {
-      color: black;
-    }
   }
 
-  >.button-modrinth {
+  &.button-modrinth {
     color: #1bd96a;
     background: #353535;
-
-    >span {
-      color: #dddddd;
-    }
   }
 
-  >.button-curseforge {
+  &.button-curseforge {
     color: #ddd;
     background: #d34037;
   }
 
-  >.button-twitch {
+  &.button-twitch {
     color: #ddd;
     background: #9146ff;
   }
 
-  >.button-youtube {
+  &.button-youtube {
     color: #f61c0d;
     background: white;
-
-    >span {
-      color: black;
-    }
   }
 
-  >.button-steam {
+  &.button-steam {
     color: #ddd;
     background: white;
-
-    >span {
-      color: black;
-    }
   }
 }

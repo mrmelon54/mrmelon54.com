@@ -1,8 +1,4 @@
-<script lang="ts">
-  export let noCenter = true;
-</script>
-
-<div class="center-screen-wrapper" class:no-center={noCenter}>
+<div class="center-screen-wrapper">
   <div class="center-screen">
     <slot />
   </div>
@@ -12,14 +8,10 @@
   .center-screen-wrapper {
     margin: 0;
     display: flex;
-    place-items: center;
+    place-items: start;
     min-width: 320px;
     min-height: calc(100vh - 50px);
     box-sizing: border-box;
-
-    &.no-center {
-      place-items: start;
-    }
 
     > .center-screen {
       max-width: min(100%, 2560px);

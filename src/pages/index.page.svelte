@@ -22,24 +22,24 @@
   export let pageProps;
 
   const socials = [
-    {text: "🍉 Melon Planet", id: "discord", url: "https://discord.gg/wKr9eBF", logo: DiscordLogo},
-    {text: "MrMelon54", id: "github", url: "https://github.com/MrMelon54", logo: GithubLogo},
-    {text: "MrMelon54", id: "patreon", url: "https://patreon.com/MrMelon54", logo: PatreonLogo},
-    {text: "MrMelon54", id: "ko-fi", url: "https://ko-fi.com/MrMelon54", logo: KoFiLogo},
-    {text: "MrMelon54", id: "paypal", url: "https://www.paypal.me/MrMelon54", logo: PaypalLogo},
-    {text: "@MrMelon54", id: "twitter", url: "https://twitter.com/@MrMelon54", logo: TwitterLogo},
-    {text: "@melon@techhub.social", id: "mastodon", url: "https://techhub.social/@melon", logo: MastodonLogo},
-    {text: "MrMelon54", id: "modrinth", url: "https://modrinth.com/user/MrMelon54", logo: ModrinthLogo},
-    {text: "MrMelon54", id: "curseforge", url: "https://curseforge.com/members/MrMelon54/projects", logo: CurseforgeLogo},
-    {text: "MrMelon54", id: "twitch", url: "https://twitch.tv/MrMelon54", logo: TwitchLogo},
-    {text: "MrMelon54", id: "youtube", url: "https://youtube.com/@MrMelon54", logo: YouTubeLogo},
-    {text: "Melon54", id: "steam", url: "https://steamcommunity.com/id/Melon54", logo: SteamLogo},
+    {id: "discord", url: "https://discord.gg/wKr9eBF", logo: DiscordLogo},
+    {id: "github", url: "https://github.com/mrmelon54", logo: GithubLogo},
+    {id: "patreon", url: "https://patreon.com/mrmelon54", logo: PatreonLogo},
+    {id: "ko-fi", url: "https://ko-fi.com/mrmelon54", logo: KoFiLogo},
+    {id: "paypal", url: "https://www.paypal.me/mrmelon54", logo: PaypalLogo},
+    {id: "twitter", url: "https://twitter.com/@mrmelon54", logo: TwitterLogo},
+    {id: "mastodon", url: "https://techhub.social/@melon", logo: MastodonLogo},
+    {id: "modrinth", url: "https://modrinth.com/user/mrmelon54", logo: ModrinthLogo},
+    {id: "curseforge", url: "https://curseforge.com/members/mrmelon54/projects", logo: CurseforgeLogo},
+    {id: "twitch", url: "https://twitch.tv/mrmelon54", logo: TwitchLogo},
+    {id: "youtube", url: "https://youtube.com/@mrmelon54", logo: YouTubeLogo},
+    {id: "steam", url: "https://steamcommunity.com/id/melon54", logo: SteamLogo},
   ];
 
   const friends = [
     {name: "CaptainALM", id: "captainalm", url: "https://captainalm.com", logo: "/friends/captainalm.png"},
     {name: "Index57", id: "index57", url: null, logo: "/friends/index57.png"},
-    {name: "ShxdedRaichu", id: "shxdedraichu", url: "https://remove.directory", logo: "/friends/raichu.png"},
+    {name: "ShxdedRaichu", id: "removeDirectory", url: "https://remove.directory", logo: "/friends/raichu.png"},
     {name: "Kikicat123", id: "kikicat123", url: "https://kikicat123.ca", logo: "/friends/kikicat123.png"},
     {name: "CarbonGhost", id: "carbonghost", url: "https://prosperitymc.net", logo: "/friends/carbonghost.png"},
     {name: "Pieman", id: "pieman", url: "https://pieman.dev", logo: "/friends/pieman.svg"},
@@ -60,7 +60,7 @@
   <link href="https://techhub.social/@melon" rel="me" />
 </svelte:head>
 
-<Layout isHome={true}>
+<Layout>
   <div class="title-logo">
     <a href="https://mrmelon54.com">
       <img src="/melon.svg" class="logo" alt="Melon Logo" />
@@ -74,11 +74,8 @@
     <h2>Socials</h2>
     <div class="link-buttons">
       {#each socials as social}
-        <a href={social.url} class="brand-button-wrapper" rel="noreferrer" target="_blank">
-          <div class="brand-button button-{social.id}">
-            <svelte:component this={social.logo} />
-            <span>{social.text}</span>
-          </div>
+        <a href={social.url} class="brand-button button-{social.id}" rel="noreferrer" target="_blank">
+          <svelte:component this={social.logo} />
         </a>
       {/each}
     </div>
@@ -88,15 +85,19 @@
     <h2>Friends</h2>
     <div class="link-buttons">
       {#each friends as friend}
-        <svelte:element this={friend.url != null ? "a" : "span"} href={friend.url} class="brand-button-wrapper" rel="noreferrer" target="_blank">
-          <div class="brand-button button-{friend.id}" style={`background-image:url("${friend.logo}");`}>
-            {#if friend.logo === null}
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1">
-                <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-size="0.8em">{friend.name[0]}</text>
-              </svg>
-            {/if}
-            <span>{friend.name}</span>
-          </div>
+        <svelte:element
+          this={friend.url != null ? "a" : "span"}
+          href={friend.url}
+          class="brand-button button-{friend.id}"
+          rel="noreferrer"
+          target="_blank"
+          style={`background-image:url("${friend.logo}");`}
+        >
+          {#if friend.logo === null}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1">
+              <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-size="0.8em">{friend.name[0]}</text>
+            </svg>
+          {/if}
         </svelte:element>
       {/each}
     </div>
@@ -106,11 +107,8 @@
     <h2>Projects I Like</h2>
     <div class="link-buttons">
       {#each projects as project}
-        <a href={project.url} class="brand-button-wrapper" rel="noreferrer" target="_blank">
-          <div class="brand-button button-{project.id}">
-            <svelte:component this={project.logo} />
-            <span>{project.name}</span>
-          </div>
+        <a href={project.url} class="brand-button button-{project.id}" rel="noreferrer" target="_blank">
+          <svelte:component this={project.logo} />
         </a>
       {/each}
     </div>
@@ -118,7 +116,8 @@
 </Layout>
 
 <style lang="scss">
-  @import "../styles/link-buttons.scss";
+  @import "../styles/link-buttons-socials.scss";
+  @import "../styles/link-buttons-friends.scss";
 
   .title-logo .logo {
     height: 6em;

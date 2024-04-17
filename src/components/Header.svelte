@@ -1,17 +1,9 @@
-<script lang="ts">
-  export let isHome: boolean = false;
-</script>
-
 <header>
   <div class="central-header">
-    {#if isHome}
-      <span />
-    {:else}
-      <a class="home-link" href="/">
-        <img src="/melon.svg" alt="Melon Logo" />
-        <h1>MrMelon54</h1>
-      </a>
-    {/if}
+    <a class="home-link" href="/">
+      <img src="/melon.svg" alt="Melon Logo" />
+      <h1>MrMelon54</h1>
+    </a>
 
     <nav>
       <a class="nav-link" href="https://status.mrmelon54.com" rel="noreferrer" target="_blank">Status</a>
