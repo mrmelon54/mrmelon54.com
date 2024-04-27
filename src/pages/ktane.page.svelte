@@ -31,15 +31,15 @@
       deprecated: false,
     },
     {
+      name: "KTaNE Manual Editor",
+      href: "https://ktane-manual-editor.mrmelon54.com",
+      description: "New fancy editor for KTaNE manuals",
+      deprecated: false,
+    },
+    {
       name: "Iconic String Generator",
       href: "https://ktane-old.mrmelon54.com/iconic-string-generator",
       description: "Old editor for Iconic mod development.",
-      deprecated: true,
-    },
-    {
-      name: "Live Manual Editor",
-      href: "https://ktane-old.mrmelon54.com/live-manual-editor",
-      description: "",
       deprecated: true,
     },
   ];
