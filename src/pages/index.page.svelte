@@ -1,21 +1,21 @@
 <script lang="ts">
   import MetaTags from "~/components/MetaTags.svelte";
-  import CurseforgeLogo from "~/icons/CurseforgeLogo.svelte";
-  import DiscordLogo from "~/icons/DiscordLogo.svelte";
-  import GithubLogo from "~/icons/GithubLogo.svelte";
-  import GoLogo from "~/icons/GoLogo.svelte";
-  import KoFiLogo from "~/icons/KoFiLogo.svelte";
-  import MastodonLogo from "~/icons/MastodonLogo.svelte";
-  import ModrinthLogo from "~/icons/ModrinthLogo.svelte";
-  import PatreonLogo from "~/icons/PatreonLogo.svelte";
-  import PaypalLogo from "~/icons/PaypalLogo.svelte";
-  import StackOverflowLogo from "~/icons/StackOverflowLogo.svelte";
-  import SteamLogo from "~/icons/SteamLogo.svelte";
-  import SvelteLogo from "~/icons/SvelteLogo.svelte";
-  import TwitchLogo from "~/icons/TwitchLogo.svelte";
-  import TwitterLogo from "~/icons/TwitterLogo.svelte";
-  import XonoticLogo from "~/icons/XonoticLogo.svelte";
-  import YouTubeLogo from "~/icons/YouTubeLogo.svelte";
+  import CurseforgeLogo from "~/icons/brands/Curseforge.svelte";
+  import DiscordLogo from "~/icons/brands/Discord.svelte";
+  import GithubLogo from "~/icons/brands/Github.svelte";
+  import GoLogo from "~/icons/brands/GoDev.svelte";
+  import KoFiLogo from "~/icons/brands/Kofi.svelte";
+  import MastodonLogo from "~/icons/brands/Mastodon.svelte";
+  import ModrinthLogo from "~/icons/brands/Modrinth.svelte";
+  import PatreonLogo from "~/icons/brands/Patreon.svelte";
+  import PaypalLogo from "~/icons/brands/Paypal.svelte";
+  import StackOverflowLogo from "~/icons/brands/Stackoverflow.svelte";
+  import SteamLogo from "~/icons/brands/Steam.svelte";
+  import SvelteLogo from "~/icons/brands/Svelte.svelte";
+  import TwitchLogo from "~/icons/brands/Twitch.svelte";
+  import TwitterLogo from "~/icons/brands/Twitter.svelte";
+  import XonoticLogo from "~/icons/brands/Xonotic.svelte";
+  import YouTubeLogo from "~/icons/brands/Youtube.svelte";
   import Layout from "~/pages/__layout.svelte";
 
   export let __;
@@ -25,7 +25,7 @@
     {id: "discord", url: "https://discord.gg/wKr9eBF", logo: DiscordLogo},
     {id: "github", url: "https://github.com/mrmelon54", logo: GithubLogo},
     {id: "patreon", url: "https://patreon.com/mrmelon54", logo: PatreonLogo},
-    {id: "ko-fi", url: "https://ko-fi.com/mrmelon54", logo: KoFiLogo},
+    {id: "kofi", url: "https://ko-fi.com/mrmelon54", logo: KoFiLogo},
     {id: "paypal", url: "https://www.paypal.me/mrmelon54", logo: PaypalLogo},
     {id: "twitter", url: "https://twitter.com/@mrmelon54", logo: TwitterLogo},
     {id: "mastodon", url: "https://techhub.social/@melon", logo: MastodonLogo},
@@ -51,6 +51,7 @@
     {name: "Xonotic", id: "xonotic", url: "https://xonotic.org", logo: XonoticLogo},
     {name: "StackOverflow", id: "stackoverflow", url: "https://stackoverflow.com", logo: StackOverflowLogo},
     {name: "Svelte", id: "svelte", url: "https://svelte.dev", logo: SvelteLogo},
+    {name: "Factorio", id: "factorio", url: "https://factorio.com", logo: null},
   ];
 </script>
 
@@ -107,8 +108,12 @@
     <h2>Projects I Like</h2>
     <div class="link-buttons">
       {#each projects as project}
-        <a href={project.url} class="brand-button button-{project.id}" rel="noreferrer" target="_blank">
-          <svelte:component this={project.logo} />
+        <a href={project.url} class="brand-button button-{project.id} button-unset" rel="noreferrer" target="_blank">
+          {#if project.logo == null}
+            <img src="/brands/{project.id}.png" alt={project.name} />
+          {:else}
+            <svelte:component this={project.logo} />
+          {/if}
         </a>
       {/each}
     </div>
@@ -123,6 +128,7 @@
     height: 6em;
     padding: 1.5em;
     will-change: filter;
+    transition: filter 500ms;
 
     &:hover {
       filter: drop-shadow(0 0 2em #469b4caa);

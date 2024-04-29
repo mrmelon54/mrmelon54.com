@@ -1,13 +1,13 @@
 <script lang="ts">
   import type {ModData} from "~/api/modrinth";
   import LazyComponent from "~/lib/LazyComponent.svelte";
-  import ModrinthLogo from "~/icons/ModrinthLogo.svelte";
-  import CurseforgeLogo from "~/icons/CurseforgeLogo.svelte";
-  import GithubLogo from "~/icons/GithubLogo.svelte";
   import {modStore} from "~/stores/minecraft-cache";
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "~/pages/__layout.svelte";
   import type {McUploadItem} from "~/api/mc-upload";
+  import Github from "~/icons/brands/Github.svelte";
+  import Modrinth from "~/icons/brands/Modrinth.svelte";
+  import Curseforge from "~/icons/brands/Curseforge.svelte";
 
   export const props = ["project"];
   export let __;
@@ -44,16 +44,16 @@
       {#if buttonData}
         <div class="link-buttons">
           <a href={buttonData.github} class="brand-button button-github" rel="noreferrer" target="_blank">
-            <GithubLogo />
+            <Github />
           </a>
           {#if buttonData.modrinth}
             <a href={buttonData.modrinth.url} class="brand-button button-modrinth" rel="noreferrer" target="_blank">
-              <ModrinthLogo />
+              <Modrinth />
             </a>
           {/if}
           {#if buttonData.curseforge}
             <a href={buttonData.curseforge.url} class="brand-button button-curseforge" rel="noreferrer" target="_blank">
-              <CurseforgeLogo />
+              <Curseforge />
             </a>
           {/if}
         </div>

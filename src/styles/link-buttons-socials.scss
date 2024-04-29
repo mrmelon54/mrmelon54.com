@@ -1,64 +1,16 @@
 @import "./link-buttons.scss";
-@import "./link-buttons.scss";
 
 .link-buttons .brand-button {
-  &.button-discord {
-    color: #ddd;
-    background: #5865f2;
-  }
-
-  &.button-github {
-    color: #ddd;
-    background: #6e40c9;
-  }
-
-  &.button-patreon {
-    color: #ddd;
-    background: #f1465a;
-  }
-
-  &.button-ko-fi {
-    color: #ddd;
-    background: #29abe0;
-  }
-
-  &.button-paypal {
-    color: #ddd;
-    background: white;
-  }
-
-  &.button-twitter {
-    color: #ddd;
-    background: #1d9bf0;
-  }
-
-  &.button-mastodon {
-    color: #ddd;
-    background: white;
-  }
-
-  &.button-modrinth {
-    color: #1bd96a;
-    background: #353535;
-  }
-
-  &.button-curseforge {
-    color: #ddd;
-    background: #d34037;
-  }
-
-  &.button-twitch {
-    color: #ddd;
-    background: #9146ff;
-  }
-
-  &.button-youtube {
-    color: #f61c0d;
-    background: white;
-  }
-
-  &.button-steam {
-    color: #ddd;
-    background: white;
-  }
+  @include brandButton(discord, #ddd, #5865f2);
+  @include brandButton(github, #ddd, #6e40c9);
+  @include brandButton(patreon, #ddd, #f1465a);
+  @include brandButton(kofi, #ddd, #29abe0);
+  @include brandButton(paypal, #ddd, white);
+  @include brandButton(twitter, #ddd, #1d9bf0);
+  @include brandButton(mastodon, #ddd, white);
+  @include brandButton(modrinth, #1bd96a, #353535, $shadow: #2eb132);
+  @include brandButton(curseforge, #ddd, #d34037);
+  @include brandButton(twitch, #ddd, #9146ff);
+  @include brandButton(youtube, #f61c0d, white);
+  @include brandButton(steam, #ddd, white);
 }
