@@ -25,7 +25,7 @@
     },
     {
       key: "snakes-and-ladders",
-      name: "Snakes and Ladders",
+      name: "Snakes & Ladders",
       steam: 1816951648,
     },
     {
