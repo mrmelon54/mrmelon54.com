@@ -16,6 +16,8 @@
 </header>
 
 <style lang="scss">
+  @import "../styles/platform.scss";
+
   header {
     display: flex;
     align-items: center;
@@ -96,8 +98,7 @@
       width: 32px;
       height: 32px;
       margin-right: 16px;
-      -webkit-filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
-      filter: drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd);
+      @include platform(filter, drop-shadow(1px 0 0 #ddd) drop-shadow(0 1px 0 #ddd) drop-shadow(-1px 0 0 #ddd) drop-shadow(0 -1px 0 #ddd));
     }
   }
 </style>
