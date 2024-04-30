@@ -125,14 +125,21 @@
   @import "../styles/link-buttons-socials.scss";
   @import "../styles/link-buttons-friends.scss";
 
-  .title-logo .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 500ms;
+  .title-logo {
+    > a {
+      display: inline-block;
+      margin: auto;
+    }
 
-    &:hover {
-      filter: drop-shadow(0 0 2em #469b4caa);
+    .logo {
+      height: 6em;
+      padding: 1.5em;
+      will-change: filter;
+      transition: filter 500ms;
+
+      &:hover {
+        @include platform(filter, drop-shadow(0 0 2em #469b4caa));
+      }
     }
   }
 

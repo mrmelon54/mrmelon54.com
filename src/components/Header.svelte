@@ -33,7 +33,7 @@
       height: 50px;
       min-height: 50px;
       max-height: 50px;
-      align-items: center;
+      align-items: stretch;
       justify-content: space-between;
       display: flex;
       width: min(100%, 1000px);
@@ -87,6 +87,7 @@
 
     &:hover {
       color: #ffffff;
+      @include platform(filter, drop-shadow(0 0 6em #469b4c));
     }
 
     > h1 {
