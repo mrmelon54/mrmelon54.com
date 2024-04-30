@@ -51,7 +51,8 @@
     {name: "Xonotic", id: "xonotic", url: "https://xonotic.org", logo: XonoticLogo},
     {name: "StackOverflow", id: "stackoverflow", url: "https://stackoverflow.com", logo: StackOverflowLogo},
     {name: "Svelte", id: "svelte", url: "https://svelte.dev", logo: SvelteLogo},
-    {name: "Factorio", id: "factorio", url: "https://factorio.com", logo: null},
+    {name: "Factorio", id: "factorio", url: "https://factorio.com"},
+    {name: "Minecraft", id: "minecraft", url: "https://factorio.com"},
   ];
 </script>
 
@@ -109,10 +110,10 @@
     <div class="link-buttons">
       {#each projects as project}
         <a href={project.url} class="brand-button button-{project.id} button-unset" rel="noreferrer" target="_blank">
-          {#if project.logo == null}
-            <img src="/brands/{project.id}.png" alt={project.name} />
-          {:else}
+          {#if project.logo}
             <svelte:component this={project.logo} />
+          {:else}
+            <img src="/brands/{project.id}.png" alt={project.name} />
           {/if}
         </a>
       {/each}

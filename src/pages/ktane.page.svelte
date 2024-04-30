@@ -92,10 +92,10 @@
         <div class="project-label">
           <div class="project-name">{y.name}</div>
           <div class="flex-gap" />
-          <a class="icon-button icon-steam" href="https://steamcommunity.com/sharedfiles/filedetails/?id={y.steam}" target="_blank">
+          <a class="icon-button icon-steam" href="https://steamcommunity.com/sharedfiles/filedetails/?id={y.steam}" target="_blank" rel="noreferrer">
             <Steam />
           </a>
-          <a class="icon-button icon-github" href="https://github.com/mrmelon54/ktanemod-{y.key}" target="_blank">
+          <a class="icon-button icon-github" href="https://github.com/mrmelon54/ktanemod-{y.key}" target="_blank" rel="noreferrer">
             <CodeIcon size={28} />
           </a>
         </div>
