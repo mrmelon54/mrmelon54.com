@@ -52,7 +52,6 @@
     font-size: 1.2em;
     height: 50px;
     position: relative;
-    transition: background-color 0.25s ease-out;
 
     &:after {
       content: "";
