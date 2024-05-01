@@ -44,6 +44,18 @@
 
   const ktaneProjects: KtaneProject[] = [
     {
+      name: "Remote Math Interface",
+      href: "https://github.com/mrmelon54/ktanemod-remote-math-interface",
+      description: "The interface to connect Remote Math to Remote Math Server using secure websockets.",
+      deprecated: false,
+    },
+    {
+      name: "Remote Math Server",
+      href: "https://github.com/mrmelon54/ktanemod-remote-math-server",
+      description: "The server allowing communication between Remote Math modules and the manual.",
+      deprecated: false,
+    },
+    {
       name: "KTaNE Mirror",
       href: "https://ktane-mirror.mrmelon54.com",
       description: "A cached version of the KTaNE Repository of Manual Pages for faster loading times.",
@@ -52,7 +64,7 @@
     {
       name: "KTaNE Mod Ideas",
       href: "https://ktane-ideas.mrmelon54.com",
-      description: "Displays mod ideas from the mod idea spreadsheet.",
+      description: "A website to display mod ideas from the mod idea spreadsheet.",
       deprecated: false,
     },
     {
@@ -106,9 +118,8 @@
   <h1 class="title-text">KTaNE Projects</h1>
   <div class="projects">
     {#each ktaneProjects as y}
-      <a href={y.href} class="project-item">
+      <a href={y.href} class="project-item" target="_blank" rel="noreferrer">
         <span class="project-item-name">{y.name}</span>
-        <span class="flex-gap" />
         {#if y.deprecated}
           <span class="project-item-deprecated">Deprecated</span>
         {/if}
@@ -165,10 +176,7 @@
         font-size: 90%;
         padding: 0 8px 8px 8px;
         color: gray;
-      }
-
-      > .flex-gap {
-        flex-grow: 1;
+        margin: auto;
       }
 
       > .project-label {
