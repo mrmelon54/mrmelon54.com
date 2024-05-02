@@ -1,5 +1,9 @@
+<script lang="ts">
+  export let narrow: boolean = false;
+</script>
+
 <div class="center-screen-wrapper">
-  <div class="center-screen">
+  <div class="center-screen" class:narrow>
     <slot />
   </div>
 </div>
@@ -20,6 +24,10 @@
       text-align: center;
       box-sizing: border-box;
       width: 100%;
+
+      &.narrow {
+        max-width: min(100%, 1000px);
+      }
     }
   }
 </style>

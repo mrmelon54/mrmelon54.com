@@ -14,7 +14,7 @@
 
 <MetaTags url={__.urlOriginal} title={__.meta.title} description={__.meta.description} keywords={__.meta.keywords} />
 
-<Layout>
+<Layout narrow={true}>
   {#await page}
     <div>Loading...</div>
   {:then loadedPage}

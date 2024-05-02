@@ -14,6 +14,7 @@
   import SvelteLogo from "~/icons/brands/Svelte.svelte";
   import TwitchLogo from "~/icons/brands/Twitch.svelte";
   import TwitterLogo from "~/icons/brands/Twitter.svelte";
+  import ViteLogo from "~/icons/brands/Vite.svelte";
   import XonoticLogo from "~/icons/brands/Xonotic.svelte";
   import YouTubeLogo from "~/icons/brands/Youtube.svelte";
   import Layout from "~/pages/__layout.svelte";
@@ -48,9 +49,10 @@
 
   const projects = [
     {name: "Go.dev", id: "godev", url: "https://go.dev", logo: GoLogo},
-    {name: "Xonotic", id: "xonotic", url: "https://xonotic.org", logo: XonoticLogo},
     {name: "StackOverflow", id: "stackoverflow", url: "https://stackoverflow.com", logo: StackOverflowLogo},
     {name: "Svelte", id: "svelte", url: "https://svelte.dev", logo: SvelteLogo},
+    {name: "Vite", id: "vite", url: "https://vitejs.dev", logo: ViteLogo},
+    {name: "Xonotic", id: "xonotic", url: "https://xonotic.org", logo: XonoticLogo},
     {name: "Factorio", id: "factorio", url: "https://factorio.com"},
     {name: "Minecraft", id: "minecraft", url: "https://factorio.com"},
   ];
