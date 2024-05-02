@@ -1,0 +1,69 @@
+# God Armor
+
+Credit to u/scudobuio on reddit for the script used to obtain this data.
+
+All of the armor does not have thorns, and the sword is not enchanted with fire aspect or looting.
+
+## Sword
+  
+1. Combine Sharpness V, Smite V, Bane of Arthropods V
+2. Combine Fire Aspect II, Looting III, Sweeping Edge III
+3. Combine Mending, Unbreaking III
+4. Add Mending/Unbreaking, then Sharpness/Smite/Bane, then Fire Aspect/Looting/Sweeping Edge
+
+## Axe
+
+1. Combine Sharpness V, Smite V, Bane of Arthropods V
+2. Combine Fortune III, Efficiency V
+3. Combine Mending, Unbreaking III
+4. Add Mending/Unbreaking, then Sharpness/Smite/Bane, then Fortune/Efficiency
+
+## Silk Shovel/Pick
+
+1. Combine Silk Touch, Efficiency V
+2. Combine Mending, Unbreaking III
+3. Add Mending/Unbreaking, then Silk Touch/Efficiency
+
+## Fortune Shovel/Pick
+
+1. Combine Fortune III, Efficiency V
+2. Combine Mending, Unbreaking III
+3. Add Mending/Unbreaking, then Fortune/Efficiency
+
+
+## Hoe
+
+- ### Why?
+
+## Elytra
+
+1. Add Mending, then Unbreaking III
+
+## Bow
+
+1. Combine Power V, Punch V
+2. Combine Flame II, Infinity
+3. Combine Mending, Unbreaking III
+4. Add Mending/Unbreaking, then Power/Punch, then Flame/Infinity
+
+
+## Helmet
+
+1. Combine Aqua Affinity, Protection IV, Fire Protection IV
+2. Combine Respiration III, Blast Protection IV, Projectile Protection IV
+3. Combine Mending, Unbreaking III
+4. Add Mending/Unbreaking, then Aqua Affinity/Protection/Fire Protection, then Respiration/Blast Protection/Projectile Protection
+
+## Chestplate/Leggings
+
+1. Combine Protection IV, Fire Protection IV
+2. Combine Blast Protection IV, Projectile Protection IV
+3. Combine Mending, Unbreaking III
+4. Add Mending/Unbreaking, then Protection/Fire Protection, then Blast Protection/Projectile Protection
+
+## Boots
+
+1. Combine Depth Strider III, Protection IV, Fire Protection IV
+2. Combine Feather Falling IV, Blast Protection IV, Projectile Protection IV
+3. Combine Mending, Unbreaking III
+4. Add Mending/Unbreaking, then Depth Strider/Protection/Fire Protection, then Feather Falling/Blast Protection/Projectile Protection

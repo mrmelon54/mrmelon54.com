@@ -19,9 +19,12 @@
     "@types/highlight.js": "^10.1.0",
     "dompurify": "^2.4.1",
     "highlight.js": "^11.7.0",
+    "lucide-svelte": "^0.376.1",
+    "mdsvex": "^0.11.0",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.8.0",
     "sass": "^1.56.0",
+    "semver": "^7.6.0",
     "svelte": "^3.52.0",
     "svelte-check": "^2.9.2",
     "svelte-markdown": "^0.2.3",
@@ -30,10 +33,7 @@
     "tslib": "^2.4.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.0",
-    "vite-plugin-ssr": "^0.4.90"
+    "vite-plugin-ssr": "^0.4.142"
   },
-  "dependencies": {
-    "lucide-svelte": "^0.376.1",
-    "semver": "^7.5.3"
-  }
+  "dependencies": {}
 }

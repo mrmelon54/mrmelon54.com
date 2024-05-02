@@ -1,7 +1,21 @@
 import sveltePreprocess from "svelte-preprocess";
+import {mdsvex} from "mdsvex";
 
 export default {
-  // Consult https://github.com/sveltejs/svelte-preprocess
-  // for more information about preprocessors
-  preprocess: sveltePreprocess(),
+  extensions: [".svelte", ".svx", ".md"],
+  preprocess: [
+    sveltePreprocess({
+      preserve: ["ld+json"],
+      scss: {
+        includePaths: ["src/"],
+        quietDeps: true,
+      },
+    }),
+    mdsvex({
+      extensions: [".svx", ".md"],
+    }),
+  ],
+  compilerOptions: {
+    hydratable: true,
+  },
 };

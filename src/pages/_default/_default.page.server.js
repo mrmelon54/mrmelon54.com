@@ -1,4 +1,4 @@
-import {escapeInject, dangerouslySkipEscape} from "vite-plugin-ssr";
+import {escapeInject, dangerouslySkipEscape} from "vite-plugin-ssr/server";
 const base = import.meta.env.BASE_URL;
 
 // See https://vite-plugin-ssr.com/data-fetching

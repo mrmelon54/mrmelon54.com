@@ -1,0 +1,26 @@
+@import "./github-markdown-dark.css";
+
+.markdown-body {
+  background: #1c1b22;
+
+  pre {
+    background-color: #434956;
+  }
+
+  a {
+    color: tomato;
+  }
+
+  h1 {
+    color: tomato;
+    border-bottom: 1px solid #21262d;
+  }
+
+  h2 {
+    color: lightseagreen;
+  }
+
+  h3 {
+    color: orchid;
+  }
+}

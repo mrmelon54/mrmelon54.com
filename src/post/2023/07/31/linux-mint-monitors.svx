@@ -1,0 +1,4 @@
+
+# Linux Mint Monitors
+
+- [LightDM login screen xrandr display configuration](https://forums.linuxmint.com/viewtopic.php?p=2086535#p2086535)
