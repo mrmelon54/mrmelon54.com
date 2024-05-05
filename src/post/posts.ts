@@ -1,6 +1,27 @@
 import postsRaw from "./posts.json";
 
-export function flattenPostJson(x) {
+function sortPosts(a, b) {
+  let x = a.year.localeCompare(b.year);
+  if (x !== 0) return x;
+  let y = a.month.localeCompare(b.month);
+  if (y !== 0) return y;
+  let z = a.day.localeCompare(b.day);
+  if (z !== 0) return z;
+  return a.key.localeCompare(b.key);
+}
+
+type PostData = {
+  [year: string]: {
+    [month: string]: {
+      [day: string]: {
+        key: string;
+        title: string;
+      };
+    };
+  };
+};
+
+export function flattenPostJson(x: PostData) {
   return Object.entries(x)
     .flatMap(x =>
       Object.entries(x[1]).flatMap(y =>
@@ -12,15 +33,7 @@ export function flattenPostJson(x) {
         })),
       ),
     )
-    .sort((a, b) => {
-      let x = a.year.localeCompare(b.year);
-      if (x !== 0) return x;
-      let y = a.month.localeCompare(b.month);
-      if (y !== 0) return y;
-      let z = a.day.localeCompare(b.day);
-      if (z !== 0) return z;
-      return a.key.localeCompare(b.key);
-    });
+    .sort((a, b) => sortPosts(b, a));
 }
 
 export const posts = flattenPostJson(postsRaw);

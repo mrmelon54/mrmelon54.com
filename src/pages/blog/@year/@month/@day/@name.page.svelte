@@ -1,5 +1,4 @@
 <script lang="ts">
-  import {onMount} from "svelte";
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "~/pages/__layout.svelte";
 
@@ -7,7 +6,10 @@
 
   async function importPostPath(__) {
     let p = __.routeParams;
-    return await import(`../../../../../post/${p.year}/${p.month}/${p.day}/${p.name}.svx`);
+    return await Promise.any([
+      import(`../../../../../post/${p.year}/${p.month}/${p.day}/${p.name}.svx`),
+      import(`../../../../../post/${p.year}/${p.month}/${p.day}/${p.name}.svelte`),
+    ]);
   }
   let page = importPostPath(__);
 </script>

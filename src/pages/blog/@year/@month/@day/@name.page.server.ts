@@ -6,7 +6,6 @@ export async function prerender() {
 
 export async function onBeforeRender(pageContext) {
   const {routeParams, urlOriginal} = pageContext;
-  console.log(routeParams);
   const meta = postsRaw[routeParams.year][routeParams.month][routeParams.day];
   return {
     pageContext: {

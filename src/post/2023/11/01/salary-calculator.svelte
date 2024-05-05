@@ -19,7 +19,7 @@
       timesA = document.querySelectorAll("#week-times input[type=time]");
       timesB = timesA;
     }
-    let times = [...timesA, ...timesB].map((x) => x.value);
+    let times = [...timesA, ...timesB].map(x => x.value);
     let out = new Array(14);
     console.log(out);
     console.log(times);
@@ -49,10 +49,10 @@
     return hours + minutes / 60;
   }
 
-  let outYear:number;
-  let outMonth:number;
-  let outWeek:number;
-  let outHour:number;
+  let outYear: number = 0;
+  let outMonth: number = 0;
+  let outWeek: number = 0;
+  let outHour: number = 0;
 
   function calculate() {
     let value = parseInt(document.getElementById("s-val").value);
@@ -97,23 +97,27 @@
   });
 </script>
 
-# Salary Calculator
+<h1>Salary Calculator</h1>
 
-<label>Salary:</label> <input type="number" min="1" step="1" name="salary" id="s-val" /> per
-<select name="per" id="s-per">
-  <option value="year">year</option>
-  <option value="month">month</option>
-  <option value="week">week</option>
-  <option value="hour">hour</option>
-</select>
+<label>
+  Salary: <input type="number" min="1" step="1" name="salary" id="s-val" /> per
+  <select name="per" id="s-per">
+    <option value="year">year</option>
+    <option value="month">month</option>
+    <option value="week">week</option>
+    <option value="hour">hour</option>
+  </select>
+</label>
 
-<br/>
+<br />
 
-<label>Schedule:</label>
-<select name="sch" id="s-sch" on:change={()=>updateWeeks()}>
-  <option value="weekly">Weekly</option>
-  <option value="bi-weekly">Bi-Weekly</option>
-</select>
+<label>
+  Schedule:
+  <select name="sch" id="s-sch" on:change={() => updateWeeks()}>
+    <option value="weekly">Weekly</option>
+    <option value="bi-weekly">Bi-Weekly</option>
+  </select>
+</label>
 
 <div id="week-wrap">
   <h1>Week</h1>
@@ -151,10 +155,13 @@
   </ul>
 </div>
 <div>
-  <button on:click={()=>calculate()}>Calculate</button>
+  <button on:click={() => calculate()}>Calculate</button>
 </div>
-
-- Yearly: {outYear}
-- Monthly: {outMonth}
-- Weekly: {outWeek}
-- Hourly: {outHour}
+<div>
+  <ul>
+    <li>Yearly: {outYear}</li>
+    <li>Monthly: {outMonth}</li>
+    <li>Weekly: {outWeek}</li>
+    <li>Hourly: {outHour}</li>
+  </ul>
+</div>
