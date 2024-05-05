@@ -1,11 +1,11 @@
 import postsRaw from "./posts.json";
 
-function sortPosts(a, b) {
-  let x = a.year.localeCompare(b.year);
+export function sortPosts(a, b) {
+  let x = -a.year.localeCompare(b.year);
   if (x !== 0) return x;
-  let y = a.month.localeCompare(b.month);
+  let y = -a.month.localeCompare(b.month);
   if (y !== 0) return y;
-  let z = a.day.localeCompare(b.day);
+  let z = -a.day.localeCompare(b.day);
   if (z !== 0) return z;
   return a.key.localeCompare(b.key);
 }
@@ -33,7 +33,7 @@ export function flattenPostJson(x: PostData) {
         })),
       ),
     )
-    .sort((a, b) => sortPosts(b, a));
+    .sort((a, b) => sortPosts(a, b));
 }
 
 export const posts = flattenPostJson(postsRaw);

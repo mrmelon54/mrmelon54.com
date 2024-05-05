@@ -1,10 +1,11 @@
 <script lang="ts">
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "~/pages/__layout.svelte";
+  import {sortPosts} from "~/post/posts";
 
   export let __;
 
-  const posts = __.posts;
+  const posts = __.posts.sort((a, b) => sortPosts(a, b));
 </script>
 
 <MetaTags url="/blog" title="Melon Blog" description="Blog by Melon" keywords="mrmelon54,melon,blog" />
