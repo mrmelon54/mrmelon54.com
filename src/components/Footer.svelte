@@ -2,19 +2,14 @@
   import CurseforgeLogo from "~/icons/brands/Curseforge.svelte";
   import DiscordLogo from "~/icons/brands/Discord.svelte";
   import GithubLogo from "~/icons/brands/Github.svelte";
-  import GoLogo from "~/icons/brands/GoDev.svelte";
   import KoFiLogo from "~/icons/brands/Kofi.svelte";
   import MastodonLogo from "~/icons/brands/Mastodon.svelte";
   import ModrinthLogo from "~/icons/brands/Modrinth.svelte";
   import PatreonLogo from "~/icons/brands/Patreon.svelte";
   import PaypalLogo from "~/icons/brands/Paypal.svelte";
-  import StackOverflowLogo from "~/icons/brands/Stackoverflow.svelte";
   import SteamLogo from "~/icons/brands/Steam.svelte";
-  import SvelteLogo from "~/icons/brands/Svelte.svelte";
   import TwitchLogo from "~/icons/brands/Twitch.svelte";
   import TwitterLogo from "~/icons/brands/Twitter.svelte";
-  import ViteLogo from "~/icons/brands/Vite.svelte";
-  import XonoticLogo from "~/icons/brands/Xonotic.svelte";
   import YouTubeLogo from "~/icons/brands/Youtube.svelte";
 
   const socials = [
@@ -84,7 +79,7 @@
 
 <style lang="postcss">
   footer {
-    @apply pb-16 text-sm leading-6;
+    @apply pb-16 text-sm leading-6 pt-16;
 
     nav {
       @apply flex max-w-7xl mx-auto px-4 sm:px-6 md:px-8 gap-4;

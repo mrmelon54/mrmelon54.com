@@ -1,6 +1,0 @@
-@mixin platform($name, $value) {
-  -webkit-#{$name}: $value;
-  -moz-#{$name}: $value;
-  -o-#{$name}: $value;
-  #{$name}: $value;
-}
