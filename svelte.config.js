@@ -6,7 +6,7 @@ export default {
   preprocess: [
     sveltePreprocess({
       preserve: ["ld+json"],
-      scss: {
+      postcss: {
         includePaths: ["src/"],
         quietDeps: true,
       },

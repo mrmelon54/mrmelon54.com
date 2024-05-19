@@ -1,16 +1,11 @@
 <script lang="ts">
-  import CenterScreen from "~/components/CenterScreen.svelte";
+  import Footer from "~/components/Footer.svelte";
   import Header from "~/components/Header.svelte";
-  import "~/styles/app.scss";
-
-  export let narrow: boolean = false;
+  import "~/styles/app.pcss";
 </script>
 
-<div id="app-router">
-  <Header />
-  <main>
-    <CenterScreen {narrow}>
-      <slot />
-    </CenterScreen>
-  </main>
-</div>
+<Header />
+<main class="flex-grow">
+  <slot />
+</main>
+<Footer/>

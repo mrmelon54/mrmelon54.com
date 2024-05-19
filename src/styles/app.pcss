@@ -1,0 +1,135 @@
+@import "./melon-markdown.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Ubuntu, Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  @apply antialiased text-pretty;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  @apply bg-white dark:bg-gray-900 text-black dark:text-gray-200 scroll-smooth selection:bg-blue-500 text-pretty;
+}
+
+body {
+  @apply min-h-screen flex flex-col;
+}
+
+#app {
+  @apply flex-grow flex flex-col;
+}
+
+@layer components {
+  button {
+    @apply w-full text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center;
+  }
+
+  button.btn-green {
+    @apply bg-emerald-600 hover:bg-emerald-700 focus:ring-emerald-300 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800;
+  }
+
+  button.btn-red {
+    @apply bg-rose-600 hover:bg-rose-700 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800;
+  }
+
+  button.btn-amber {
+    @apply bg-amber-600 hover:bg-amber-700 focus:ring-amber-300 dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800;
+  }
+
+  label[for] {
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+  }
+
+  input[type=text],
+  input[type=email] {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-emerald-600 focus:border-emerald-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+
+  input[type=checkbox] {
+    @apply focus:outline-none appearance-none relative w-6 h-6 border border-gray-300 rounded bg-gray-50 focus:ring-2 focus:ring-emerald-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-emerald-600 dark:ring-offset-gray-800 checked:bg-emerald-700;
+  }
+
+  input[type=checkbox]+svg.check {
+    @apply absolute w-6 h-6 mt-1 hidden pointer-events-none text-gray-200;
+  }
+
+  input[type=checkbox]:checked+svg.check {
+    @apply block;
+  }
+
+  table.table-default {
+    @apply w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-200;
+  }
+
+  table.table-default thead {
+    @apply text-xs text-gray-700 bg-gray-200 dark:bg-gray-700 dark:text-gray-200;
+  }
+
+  table.table-default thead tr th {
+    @apply px-6 py-3 text-center;
+  }
+
+  table.table-default tbody {
+    @apply bg-white dark:bg-gray-800;
+  }
+
+  table.table-default tbody tr td {
+    @apply px-6 py-4 text-center;
+  }
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Ubuntu.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/FiraCode-Regular.woff2") format("woff2");
+}
+
+a {
+  @apply font-semibold;
+  @apply text-emerald-500;
+  text-decoration: inherit;
+
+  &:hover {
+    @apply text-emerald-400;
+  }
+
+  &.secondary {
+    @apply text-blue-500;
+
+    &:hover {
+      @apply text-blue-400;
+    }
+  }
+}
+
+code {
+  font-family: "Fira Code", monospace;
+  white-space: pre-line;
+}
+
+.flex-gap {
+  flex-grow: 1;
+}

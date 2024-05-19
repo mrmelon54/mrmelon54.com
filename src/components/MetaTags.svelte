@@ -24,7 +24,4 @@
 
   <link rel="icon" type="image/svg+xml" href="/melon.svg" />
   <link rel="icon" type="image/png" href="/melon.png" />
-
-  <link rel="stylesheet" href="/melon.light.css" media="screen" />
-  <link rel="stylesheet" href="/melon.dark.css" media="screen and (prefers-color-scheme: dark)" />
 </svelte:head>
