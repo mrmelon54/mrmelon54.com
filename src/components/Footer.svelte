@@ -87,7 +87,7 @@
     @apply pb-16 text-sm leading-6;
 
     nav {
-      @apply flex max-w-7xl mx-auto divide-y divide-slate-200 px-4 sm:px-6 md:px-8 dark:divide-slate-700 gap-4;
+      @apply flex max-w-7xl mx-auto px-4 sm:px-6 md:px-8 gap-4;
 
       .nav-half {
         @apply flex flex-col w-1/2 space-y-10 sm:space-y-8 lg:flex-row lg:space-y-0 gap-8;
