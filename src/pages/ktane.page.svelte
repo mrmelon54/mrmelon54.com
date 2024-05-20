@@ -1,8 +1,9 @@
 <script lang="ts">
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "~/pages/__layout.svelte";
-  import Steam from "~/icons/brands/Steam.svelte";
   import CodeIcon from "~/icons/Code.svelte";
+  import GamepadIcon from "~/icons/Gamepad2.svelte";
+  import Card from "~/components/Card.svelte";
 
   export let __;
 
@@ -96,121 +97,42 @@
 />
 
 <Layout>
-  <h1 class="title-text">KTaNE Mods</h1>
-  <div class="projects">
-    {#each ktaneMods as y}
-      <div class="project-item">
-        <img src="/ktane/{y.key}.png" alt="{y.name} Module Icon" />
-        <div class="project-label">
-          <div class="project-name">{y.name}</div>
-          <div class="flex-gap" />
-          <a class="icon-button icon-steam" href="https://steamcommunity.com/sharedfiles/filedetails/?id={y.steam}" target="_blank" rel="noreferrer">
-            <Steam />
-          </a>
-          <a class="icon-button icon-github" href="https://github.com/mrmelon54/ktanemod-{y.key}" target="_blank" rel="noreferrer">
-            <CodeIcon size={28} />
-          </a>
-        </div>
-      </div>
-    {/each}
-  </div>
+  <section class="max-w-7xl mx-auto p-12 flex flex-col gap-8">
+    <h1 class="text-4xl">KTaNE Mods</h1>
+    <div class="flex flex-wrap gap-4">
+      {#each ktaneMods as y}
+        <Card title={y.name} inlineDetails={true} image={{src: `/ktane/${y.key}.png`, alt: `${y.name} Module Icon`}} addClass="w-80">
+          <svelte:fragment slot="details">
+            <span class="flex-grow" />
+            <a class="p-1 text-gray-200" href="https://steamcommunity.com/sharedfiles/filedetails/?id={y.steam}" target="_blank" rel="noreferrer">
+              <GamepadIcon size={28} />
+            </a>
+            <a class="p-1 text-gray-200" href="https://github.com/mrmelon54/ktanemod-{y.key}" target="_blank" rel="noreferrer">
+              <CodeIcon size={28} />
+            </a>
+          </svelte:fragment>
+        </Card>
+      {/each}
+    </div>
+  </section>
 
-  <h1 class="title-text">KTaNE Projects</h1>
-  <div class="projects">
-    {#each ktaneProjects as y}
-      <a href={y.href} class="project-item" target="_blank" rel="noreferrer">
-        <span class="project-item-name">{y.name}</span>
-        {#if y.deprecated}
-          <span class="project-item-deprecated">Deprecated</span>
-        {/if}
-        <span class="project-item-description">{y.description}</span>
-      </a>
-    {/each}
-  </div>
+  <section class="max-w-7xl mx-auto p-12 flex flex-col gap-8">
+    <h1 class="text-4xl">KTaNE Projects</h1>
+    <div class="flex flex-wrap gap-4">
+      {#each ktaneProjects as y}
+        <a href={y.href} class="project-item w-80" target="_blank" rel="noreferrer">
+          {#if y.deprecated}
+            <Card title={y.name} paragraph={y.description}>
+              <div slot="details" class="text-rose-500">Deprecated</div>
+            </Card>
+          {:else}
+            <Card title={y.name} paragraph={y.description} />
+          {/if}
+        </a>
+      {/each}
+    </div>
+  </section>
 </Layout>
 
 <style lang="scss">
-  .title-text {
-    margin: 0;
-    font-size: 3.2em;
-    line-height: 1.1;
-  }
-
-  .projects {
-    display: flex;
-    padding: 24px;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-
-    .project-item {
-      width: calc((600px - 4rem - 16px) * 0.5);
-      align-self: stretch;
-
-      @media (max-width: 600px) {
-        & {
-          width: 100%;
-        }
-      }
-
-      display: flex;
-      flex-direction: column;
-      background: var(--bg-panel);
-      border-radius: 16px;
-      -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-      -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-      box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-
-      overflow: hidden;
-
-      > .project-item-name {
-        padding: 16px 16px 8px 16px;
-        color: var(--primary-text);
-      }
-
-      > .project-item-deprecated {
-        color: tomato;
-      }
-
-      > .project-item-description {
-        font-size: 90%;
-        padding: 0 8px 8px 8px;
-        color: gray;
-        margin: auto;
-      }
-
-      > .project-label {
-        display: flex;
-        flex-direction: row;
-
-        > .project-name {
-          margin: auto 16px auto 16px;
-        }
-
-        > .icon-button {
-          display: flex;
-          margin: 6px;
-          cursor: pointer;
-          border-radius: 50%;
-
-          > :global(svg) {
-            margin: auto;
-          }
-
-          &.icon-github {
-            color: #ddd;
-            background-color: #469b4c;
-          }
-
-          $iconSize: 32px;
-          width: $iconSize;
-          height: $iconSize;
-
-          -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-          -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-        }
-      }
-    }
-  }
 </style>

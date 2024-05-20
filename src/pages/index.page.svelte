@@ -1,7 +1,6 @@
 <script lang="ts">
   import MetaTags from "~/components/MetaTags.svelte";
   import Layout from "./__layout.svelte";
-  import {onMount} from "svelte";
   import Card from "~/components/Card.svelte";
 
   export let __;
@@ -9,9 +8,9 @@
 
   const cardsMc = [
     {
-      title:""
-    }
-  ]
+      title: "",
+    },
+  ];
 </script>
 
 <MetaTags url={__.urlOriginal} title="MrMelon54" description="MrMelon54.com Home Page" keywords="" />
@@ -31,11 +30,13 @@
   <section class="max-w-7xl mx-auto p-12">
     <h2 class="text-4xl">Minecraft Projects</h2>
     <div class="flex flex-row pt-8">
-      <Card title="Some Title" paragraph="This is some content">
-        <div>1,000 commits on GitHub</div>
-        <div class="card-lang">
-          Golang <div class="rounded-full w-4 h-4 bg-[#5ec9e3] inline-block" />
-        </div>
+      <Card title="Some Title" paragraph="This is some content" addClass="w-96">
+        <svelte:fragment slot="details">
+          <div>1,000 commits on GitHub</div>
+          <div class="card-lang">
+            Golang <div class="rounded-full w-4 h-4 bg-[#5ec9e3] inline-block" />
+          </div>
+        </svelte:fragment>
       </Card>
     </div>
   </section>

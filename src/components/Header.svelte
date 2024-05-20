@@ -4,7 +4,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<header class:notTop={y > 0}>
+<header class:isTop={y == 0}>
   <a class="px-4 flex-none flex overflow-hidden md:w-auto items-center font-bold text-2xl" href="/">
     <img src="/melon.svg" alt="Melon Logo" class="text-slate-900 dark:text-white w-auto h-8" />
     <span class="ml-4">MrMelon54</span>
@@ -23,11 +23,11 @@
     @apply sticky top-0 z-40 h-16 px-4 lg:px-8 w-full flex items-stretch;
     @apply bg-transparent text-black dark:text-gray-200 lg:border-b lg:border-transparent;
     transition: backdrop-filter 0.2s;
-    @apply backdrop-blur backdrop-opacity-0;
+    @apply backdrop-blur backdrop-opacity-100;
+    @apply lg:border-slate-900/10 border-slate-50/[0.06];
 
-    &.notTop {
-      @apply backdrop-opacity-100;
-      @apply lg:border-slate-900/10 border-slate-50/[0.06];
+    &.isTop {
+      @apply backdrop-opacity-0 border-transparent;
     }
 
     nav a {
