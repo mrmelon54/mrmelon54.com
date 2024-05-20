@@ -51,7 +51,7 @@
         <h2>Social</h2>
         <ul class="wide">
           {#each socials as social}
-            <li><a href={social.url}>{social.name}</a></li>
+            <li><a href={social.url} target="_blank" rel="noreferrer">{social.name}</a></li>
           {/each}
         </ul>
       </div>
@@ -61,7 +61,11 @@
         <h2>Friends</h2>
         <ul>
           {#each friends as friend}
-            <li><svelte:element this={friend.url == null ? "span" : "a"} href={friend.url}>{friend.name}</svelte:element></li>
+            <li>
+              <svelte:element this={friend.url == null ? "span" : "a"} href={friend.url} target="_blank" rel="noreferrer">
+                {friend.name}
+              </svelte:element>
+            </li>
           {/each}
         </ul>
       </div>
@@ -69,7 +73,7 @@
         <h2>Navigation</h2>
         <ul>
           {#each navigation as nav}
-            <li><a href={nav.url}>{nav.name}</a></li>
+            <li><a href={nav.url} target="_blank" rel="noreferrer">{nav.name}</a></li>
           {/each}
         </ul>
       </div>
@@ -97,7 +101,7 @@
       }
 
       h2 {
-        @apply font-semibold text-slate-900 dark:text-slate-100;
+        @apply font-semibold text-slate-100;
       }
 
       ul {
@@ -108,7 +112,7 @@
         }
 
         li {
-          @apply hover:text-slate-900 dark:hover:text-slate-300;
+          @apply hover:text-slate-300;
         }
       }
     }

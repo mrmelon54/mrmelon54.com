@@ -7,6 +7,7 @@
   import Github from "~/icons/brands/Github.svelte";
   import Modrinth from "~/icons/brands/Modrinth.svelte";
   import Curseforge from "~/icons/brands/Curseforge.svelte";
+  import Background from "~/components/Background.svelte";
 
   export const props = ["project"];
   export let __;
@@ -108,38 +109,48 @@
   keywords="minecraft,minecraft mod,{__.routeParams.project}"
 />
 
+<Background src="/bg.png" />
+
 <Layout>
   {#if modData}
-    <div class="mod-meta">
-      <img class="title-img" src={modData.icon_url} alt={modData.title} />
-      <h1 class="title-text">{modData.title}</h1>
+    <section class="max-w-7xl mx-auto p-12 flex flex-col lg:flex-row gap-8">
+      <div class="flex flex-col sm:flex-row gap-8">
+        <img class="w-48" src={modData.icon_url} alt={modData.title} />
+        <div class="flex flex-col gap-4">
+          <h1 class="text-4xl">{modData.title}</h1>
+          <div class="platform-text">
+            <div>Modrinth ID: {buttonData.modrinth.id}</div>
+            <div>CurseForge ID: {buttonData.curseforge.id}</div>
+          </div>
+        </div>
+      </div>
+      <span class="flex-grow" />
       {#if buttonData}
-        <div class="link-buttons">
-          <a href={buttonData.github} class="brand-button button-github" rel="noreferrer" target="_blank">
-            <Github />
+        <div class="flex flex-col gap-4">
+          <a href={buttonData.github} class="brand-button btn btn-green !px-16" rel="noreferrer" target="_blank">
+            <Github size={32} fill="currentColor" />
+            <span class="text-lg">Source Code</span>
           </a>
           {#if buttonData.modrinth}
-            <a href={buttonData.modrinth.url} class="brand-button button-modrinth" rel="noreferrer" target="_blank">
-              <Modrinth />
+            <a href={buttonData.modrinth.url} class="brand-button btn btn-green !px-16" rel="noreferrer" target="_blank">
+              <Modrinth size={32} fill="currentColor" />
+              <span class="text-lg">Modrinth</span>
             </a>
           {/if}
           {#if buttonData.curseforge}
-            <a href={buttonData.curseforge.url} class="brand-button button-curseforge" rel="noreferrer" target="_blank">
-              <Curseforge />
+            <a href={buttonData.curseforge.url} class="brand-button btn btn-green !px-16" rel="noreferrer" target="_blank">
+              <Curseforge size={32} fill="currentColor" />
+              <span class="text-lg">Curseforge</span>
             </a>
           {/if}
         </div>
       {:else}
         <div class="buttons-loading" />
       {/if}
-    </div>
-    <div class="platform-text">
-      <div>Modrinth ID: {buttonData.modrinth.id}</div>
-      <div>CurseForge ID: {buttonData.curseforge.id}</div>
-    </div>
-    <div class="game-versions">
+    </section>
+    <section class="max-w-7xl mx-auto p-12 flex flex-col gap-8">
       {#await versionData then w}
-        <table>
+        <table class="table-default">
           <thead>
             <tr class="table-header">
               <th>Mod Version</th>
@@ -155,14 +166,14 @@
                 <td>{renderGameVersions(v.meta.game_versions)}</td>
                 <td>
                   {#if v.modrinth_id != ""}
-                    <a class="version-pill mr-dl" rel="noreferrer" target="_blank" href="{buttonData.modrinth.url}/version/{v.modrinth_id}">
+                    <a class="version-pill mr-dl plain" rel="noreferrer" target="_blank" href="{buttonData.modrinth.url}/version/{v.modrinth_id}">
                       <span>Modrinth</span>
                     </a>
                   {/if}
                 </td>
                 <td>
                   {#if v.curseforge_id != ""}
-                    <a class="version-pill cf-dl" rel="noreferrer" target="_blank" href="{buttonData.curseforge.url}/files/{v.curseforge_id}">
+                    <a class="version-pill cf-dl plain" rel="noreferrer" target="_blank" href="{buttonData.curseforge.url}/files/{v.curseforge_id}">
                       <span>Curseforge</span>
                     </a>
                   {/if}
@@ -174,71 +185,32 @@
       {:catch}
         <div data-text="No version data" />
       {/await}
-    </div>
+    </section>
   {:else}
     <div class="projects-loading" />
   {/if}
 </Layout>
 
-<style lang="scss">
-  @import "../../styles/link-buttons-socials.scss";
-
-  .mod-meta {
-    .title-img {
-      width: max(200px, 15%);
-      aspect-ratio: 1/1;
-      border-radius: calc(100% / 16);
-      margin-bottom: 32px;
-      -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-      -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-      box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-    }
-
-    .title-text {
-      margin: 0 0 16px 0;
-      font-size: 3.2em;
-      line-height: 1.1;
-    }
-  }
-
+<style lang="postcss">
   .platform-text {
     margin-bottom: 32px;
   }
 
-  .game-versions {
-    display: flex;
-    margin-bottom: 32px;
+  .version-pill {
+    padding: 6px 12px;
+    border-radius: 0.5rem;
+    color: var(--primary-text);
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-
-      .table-header {
-        background-color: #469b4c;
-      }
-
-      th,
-      td {
-        padding: 8px;
-      }
-
-      tr:nth-child(2n) {
-        background-color: var(--bg-panel);
-      }
+    &.mr-dl {
+      background: #00af5c;
     }
 
-    .version-pill {
-      padding: 6px 12px;
-      border-radius: 0.5rem;
-      color: var(--primary-text);
-
-      &.mr-dl {
-        background: green;
-      }
-
-      &.cf-dl {
-        background: orangered;
-      }
+    &.cf-dl {
+      background: #f16436;
     }
+  }
+
+  .brand-button {
+    @apply text-white flex flex-row items-center justify-center gap-4;
   }
 </style>

@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2400 2800" {...$$restProps}>
-  <path d="M500 0 0 500v1800h600v500l500-500h400l900-900V0H500zm1700 1300-400 400h-400l-350 350v-350H600V200h1600v1100z" fill="currentColor" />
-  <path d="M1700 550h200v600h-200zM1150 550h200v600h-200z" fill="currentColor" />
+<script lang="ts">
+  export let size = 24;
+</script>
+
+<svg role="img" width={size} height={size} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...$$restProps}>
+  <title>Twitch</title>
+  <path
+    d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"
+  />
 </svg>

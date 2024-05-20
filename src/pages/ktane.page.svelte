@@ -3,7 +3,11 @@
   import Layout from "~/pages/__layout.svelte";
   import CodeIcon from "~/icons/Code.svelte";
   import GamepadIcon from "~/icons/Gamepad2.svelte";
-  import Card from "~/components/Card.svelte";
+  import Card from "~/components/card/Card.svelte";
+  import CardDetails from "~/components/card/CardDetails.svelte";
+  import CardTitle from "~/components/card/CardTitle.svelte";
+  import CardContent from "~/components/card/CardContent.svelte";
+  import Background from "~/components/Background.svelte";
 
   export let __;
 
@@ -96,21 +100,24 @@
   keywords="ktane,keep talking and nobody explodes,mrmelon54"
 />
 
+<Background src="/bg.png" />
+
 <Layout>
   <section class="max-w-7xl mx-auto p-12 flex flex-col gap-8">
     <h1 class="text-4xl">KTaNE Mods</h1>
-    <div class="flex flex-wrap gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {#each ktaneMods as y}
-        <Card title={y.name} inlineDetails={true} image={{src: `/ktane/${y.key}.png`, alt: `${y.name} Module Icon`}} addClass="w-80">
-          <svelte:fragment slot="details">
+        <Card image={{src: `/ktane/${y.key}.png`, alt: `${y.name} Module Icon`}}>
+          <CardDetails grow={true}>
+            <CardTitle>{y.name}</CardTitle>
             <span class="flex-grow" />
-            <a class="p-1 text-gray-200" href="https://steamcommunity.com/sharedfiles/filedetails/?id={y.steam}" target="_blank" rel="noreferrer">
+            <a class="plain p-1 text-gray-200 hover:text-rose-500" href="https://steamcommunity.com/sharedfiles/filedetails/?id={y.steam}" target="_blank" rel="noreferrer">
               <GamepadIcon size={28} />
             </a>
-            <a class="p-1 text-gray-200" href="https://github.com/mrmelon54/ktanemod-{y.key}" target="_blank" rel="noreferrer">
+            <a class="plain p-1 text-gray-200 hover:text-rose-500" href="https://github.com/mrmelon54/ktanemod-{y.key}" target="_blank" rel="noreferrer">
               <CodeIcon size={28} />
             </a>
-          </svelte:fragment>
+          </CardDetails>
         </Card>
       {/each}
     </div>
@@ -118,21 +125,16 @@
 
   <section class="max-w-7xl mx-auto p-12 flex flex-col gap-8">
     <h1 class="text-4xl">KTaNE Projects</h1>
-    <div class="flex flex-wrap gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {#each ktaneProjects as y}
-        <a href={y.href} class="project-item w-80" target="_blank" rel="noreferrer">
+        <Card href={y.href} target="_blank" rel="noreferrer">
+          <CardTitle>{y.name}</CardTitle>
           {#if y.deprecated}
-            <Card title={y.name} paragraph={y.description}>
-              <div slot="details" class="text-rose-500">Deprecated</div>
-            </Card>
-          {:else}
-            <Card title={y.name} paragraph={y.description} />
+            <div class="text-red-500">Deprecated</div>
           {/if}
-        </a>
+          <CardContent>{y.description}</CardContent>
+        </Card>
       {/each}
     </div>
   </section>
 </Layout>
-
-<style lang="scss">
-</style>

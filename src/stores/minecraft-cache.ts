@@ -1,7 +1,7 @@
 import {writable} from "svelte/store";
 import {PromiseAllUnique} from "~/utils/promise-all-unique";
 import type {ModData} from "~/api/modrinth";
-import type { McUploadItem } from "~/api/mc-upload";
+import type {McUploadItem} from "~/api/mc-upload";
 
 export interface ModStore {
   projects: ModData[];
@@ -9,8 +9,6 @@ export interface ModStore {
   projectsSlugMap: Map<string, ModData>;
   modAlias: Map<string, McUploadItem>;
 }
-
-
 
 export const modStore = writable<ModStore | Error | null>(
   (() => {
