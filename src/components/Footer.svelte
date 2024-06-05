@@ -30,7 +30,7 @@
   const friends = [
     {name: "CaptainALM", id: "captainalm", url: "https://captainalm.com", logo: "/friends/captainalm.png"},
     {name: "Index57", id: "index57", url: null, logo: "/friends/index57.png"},
-    {name: "ShxdedRaichu", id: "removeDirectory", url: "https://remove.directory", logo: "/friends/raichu.png"},
+    {name: "removeDirectory", id: "removedirectory", url: "https://remove.directory", logo: "/friends/removedirectory.png"},
     {name: "Kikicat123", id: "kikicat123", url: "https://kikicat123.ca", logo: "/friends/kikicat123.png"},
     {name: "CarbonGhost", id: "carbonghost", url: "https://prosperitymc.net", logo: "/friends/carbonghost.png"},
     {name: "Pieman", id: "pieman", url: "https://pieman.dev", logo: "/friends/pieman.svg"},
