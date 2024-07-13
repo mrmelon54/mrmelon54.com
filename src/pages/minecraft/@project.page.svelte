@@ -148,43 +148,45 @@
         <div class="buttons-loading" />
       {/if}
     </section>
-    <section class="max-w-7xl mx-auto p-12 flex flex-col gap-8">
-      {#await versionData then w}
-        <table class="table-default">
-          <thead>
-            <tr class="table-header">
-              <th>Mod Version</th>
-              <th>Minecraft Version</th>
-              <th />
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-            {#each w.filter(x => x.modrinth_id != "" || x.curseforge_id != "").reverse() as v}
-              <tr>
-                <th>{v.meta.version}</th>
-                <td>{renderGameVersions(v.meta.game_versions)}</td>
-                <td>
-                  {#if v.modrinth_id != ""}
-                    <a class="version-pill mr-dl plain" rel="noreferrer" target="_blank" href="{buttonData.modrinth.url}/version/{v.modrinth_id}">
-                      <span>Modrinth</span>
-                    </a>
-                  {/if}
-                </td>
-                <td>
-                  {#if v.curseforge_id != ""}
-                    <a class="version-pill cf-dl plain" rel="noreferrer" target="_blank" href="{buttonData.curseforge.url}/files/{v.curseforge_id}">
-                      <span>Curseforge</span>
-                    </a>
-                  {/if}
-                </td>
+    <section class="max-w-7xl mx-auto p-0 py-12 md:p-12 flex flex-col gap-8">
+      <div class="overflow-x-auto">
+        {#await versionData then w}
+          <table class="table-default">
+            <thead>
+              <tr class="table-header">
+                <th>Mod Version</th>
+                <th>Minecraft Version</th>
+                <th />
+                <th />
               </tr>
-            {/each}
-          </tbody>
-        </table>
-      {:catch}
-        <div data-text="No version data" />
-      {/await}
+            </thead>
+            <tbody>
+              {#each w.filter(x => x.modrinth_id != "" || x.curseforge_id != "").reverse() as v}
+                <tr>
+                  <th>{v.meta.version}</th>
+                  <td>{renderGameVersions(v.meta.game_versions)}</td>
+                  <td>
+                    {#if v.modrinth_id != ""}
+                      <a class="version-pill mr-dl plain" rel="noreferrer" target="_blank" href="{buttonData.modrinth.url}/version/{v.modrinth_id}">
+                        <span>Modrinth</span>
+                      </a>
+                    {/if}
+                  </td>
+                  <td>
+                    {#if v.curseforge_id != ""}
+                      <a class="version-pill cf-dl plain" rel="noreferrer" target="_blank" href="{buttonData.curseforge.url}/files/{v.curseforge_id}">
+                        <span>Curseforge</span>
+                      </a>
+                    {/if}
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+        {:catch}
+          <div data-text="No version data" />
+        {/await}
+      </div>
     </section>
   {:else}
     <div class="projects-loading" />
