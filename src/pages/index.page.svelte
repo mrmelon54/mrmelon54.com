@@ -80,9 +80,9 @@
 <Background src="/bg.png" />
 
 <Layout>
-  <section class="max-w-7xl mx-auto h-96 p-24 flex flex-col justify-end gap-8">
+  <section class="max-w-7xl mx-auto h-96 p-12 md:p-24 flex flex-col justify-end gap-8">
     <h1 class="text-6xl">MrMelon54</h1>
-    <p>British man. Coming to an internet server near you.</p>
+    <p>Coming to an internet server near you.</p>
   </section>
 
   <section class="max-w-7xl mx-auto p-12 flex flex-col gap-8">
