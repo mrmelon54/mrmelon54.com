@@ -20,7 +20,7 @@
 <Background src="/bg.png" />
 
 <Layout>
-  <section class="max-w-7xl mx-auto p-0 pt-12 md:p-12 flex flex-col gap-8">
+  <section class="max-w-7xl mx-auto p-0 py-12 md:p-12 flex flex-col gap-8">
     {#await page}
       <div>Loading...</div>
     {:then loadedPage}
