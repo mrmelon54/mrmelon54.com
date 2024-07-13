@@ -1,7 +1,15 @@
 <script lang="ts">
+  import {onMount} from "svelte";
+
   let y = 0;
 
   let openNav: boolean = false;
+
+  let bodyClassList: DOMTokenList;
+  onMount(() => {
+    bodyClassList = document.body.classList;
+  });
+  $: bodyClassList && (openNav ? bodyClassList.add("openNav") : bodyClassList.remove("openNav"));
 </script>
 
 <svelte:window bind:scrollY={y} />
@@ -87,5 +95,9 @@
         @apply bg-gray-200;
       }
     }
+  }
+
+  :global(body.openNav) {
+    @apply overflow-hidden md:overflow-auto;
   }
 </style>
