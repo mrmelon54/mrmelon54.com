@@ -1,21 +1,5 @@
-import sveltePreprocess from "svelte-preprocess";
-import {mdsvex} from "mdsvex";
+import { vitePreprocess } from '@astrojs/svelte';
 
 export default {
-  extensions: [".svelte", ".svx", ".md"],
-  preprocess: [
-    sveltePreprocess({
-      preserve: ["ld+json"],
-      postcss: {
-        includePaths: ["src/"],
-        quietDeps: true,
-      },
-    }),
-    mdsvex({
-      extensions: [".svx", ".md"],
-    }),
-  ],
-  compilerOptions: {
-    hydratable: true,
-  },
-};
+	preprocess: vitePreprocess(),
+}
