@@ -1,0 +1,105 @@
+---
+title: 'Bootable USB'
+description: 'Lorem ipsum dolor sit amet'
+pubDate: '06 February 2023'
+heroImage: '/blog-placeholder-3.jpg'
+---
+
+# Bootable USB
+
+This is how I installed grub unto my external hard drive (GPT) which had
+Ubuntu 17.04 installed. When you do this it allows you to boot your Ubuntu
+on any PC which supports UEFI by using the grub on the external without
+relying on the PC grub. It can also serve as backup grub in case the is
+problem with EFI of Windows.
+
+## Installing Grub to an external hard drive that has Ubuntu installed
+
+1. Boot into an Ubuntu live USB and connect the external hard drive.
+
+2. List partitions of all devices: `lsblk`
+
+3. From the results of `lsblk`, identify the linux partition and also the efi partition of the external hard drive,
+   i.e. `/dev/sdXY1` and `/dev/sdXY2` respectively. Replace `XY1` and `XY2` with your own partition names.
+
+4. Special mount the linux partition: `sudo mount /dev/sdXY1 /mnt`
+
+5. Mount critical virtual filesystems: ```for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done```
+
+6. `chroot` into the Linux partition you mounted: `sudo chroot /mnt`.
+
+   You are now in the external hard drive's linux filesystem.
+
+7. Create the directory where grub would install its files: `mkdir -p /boot/efi`.
+
+   If it already exists, then skip to step 8.
+
+8. Mount the efi partition from step 3: `mount /dev/sdXY2 /boot/efi`
+
+9. Install grub to the external hard drive: `grub-install /dev/sdX`
+
+10. Update grub: `update-grub`
+
+11. Find the UUID of the efi partition (aka 'vfat') and note it down: `blkid` or `ls -l /dev/disk/by-uuid`
+
+12. Now we need to tell fstab to mount that efi partition on boot:
+    ```
+    cp /etc/fstab /etc/fstab.bak
+    sudo nano /etc/fstab  
+    ```
+    Add the below two lines to fstab replacing xxxx-xxxx with the UUID from step 11:
+    ```
+    #my modified fstab to mount external hard drive's esp  
+    UUID=xxxx-xxxx   /boot/efi   vfat   umask=0077   0   1  
+    ```
+    Make sure to comment out the fstab entry of the Windows esp so it doesn't conflict.
+
+13. Exit the chroot: `exit`
+
+14. Reboot the PC: `sudo reboot`
+    
+At this point when you reboot and choose your external device from the EFI
+boot manager, it will boot to grub.
+
+To make Ubuntu automatically boot when you insert the external and Windows
+to automatically boot when the external is not inserted you would have to
+create a custom boot entry for Ubuntu to point to the efi on the external
+drive:
+
+## Creating a custom boot entry for Ubuntu to point to efi on the external HD
+
+From Windows *EasyUEFI* can add or remove boot entries.
+
+From Linux *efibootmgr* can add or remove boot entries.
+
+### **Alternative #1** - using EasyUEFI
+
+1. In Windows download EasyUEFI, install it and run.
+2. Choose the **EFI options manager**
+3. Choose **create 'new entry'** with + sign
+4. Choose **Linux or other OS** and give it a name in the description box
+5. Select the FAT32 EFI partition on the external drive that contains the grub bootloader
+6. Choose **browse**
+7. Navigate to **/efi/ubuntu/shimx64.efi** or **/efi/ubuntu/grubx64**
+8. Save
+9. Move it to the top of the boot entries list
+10. Restart
+
+### **Alternative #2** - using `efibootmgr`
+
+1. List boot menu entries: `efibootmgr`
+
+2. Create a boot entry:
+   `efibootmgr -c [-L label] [-d /dev/sdX]`
+
+   e.g.: `efibootmgr -c -L myubuntu -d /dev/sdX`
+
+   This boot entry would automatically be the first entry.
+
+   `/dev/sdX` is the external hard drive with the grub bootloader.
+
+3. You can now reboot and without your intervention Ubuntu would
+   automatically boot when external hard drive is plugged in. When the
+   external hard drive is not plugged in, the PC would skip our
+   **Ubuntu** boot entry to the next entry which is probably
+   **Windows Boot Manager**.

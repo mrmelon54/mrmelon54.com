@@ -1,0 +1,61 @@
+---
+title: "WireGuard"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "30 April 2024"
+heroImage: "/blog-placeholder-3.jpg"
+---
+
+# WireGuard
+
+## 1. KeyPairs
+
+On each peer a private and public key needs to be generated.
+
+```
+wg genkey | (umask 0077 && tee peer-example.key) | wg pubkey > peer-example.pub
+```
+
+-----
+
+## 2. Server Config
+
+`/etc/wireguard/wg0.conf`
+
+```ini
+[Interface]
+Address = fd[redacted]::/48
+ListenPort = 51820
+PrivateKey = [redacted]
+
+PreUp = sysctl -w net.ipv4.ip_forward=1
+PreUp = sysctl -w net.ipv4.conf.all.forwarding=1
+PreUp = sysctl -w net.ipv6.conf.all.forwarding=1
+PostUp = ip6tables -I FORWARD -i %i -o %i -j ACCEPT
+PostUp = ip6tables -A FORWARD -i %i -j ACCEPT
+PostUp = ip6tables -A FORWARD -o %i -j ACCEPT
+PostUp = ip6tables -t nat -A POSTROUTING -o %i -j MASQUERADE
+PostDown = ip6tables -D FORWARD -i %i -o %i -j ACCEPT
+PostDown = ip6tables -D FORWARD -i %i -j ACCEPT
+PostDown = ip6tables -D FORWARD -o %i -j ACCEPT
+PostDown = ip6tables -t nat -D POSTROUTING -o %i -j MASQUERADE
+
+[Peer]
+# my peer
+PublicKey = [redacted]
+AllowedIPs = fd[redacted]:1::/64
+```
+
+## 3. Client Config
+
+Paste into Windows WireGuard client or setup Linux client using network manager.
+
+```ini
+[Interface]
+PrivateKey = [redacted]
+Address = fd[redacted]:1::/64
+
+[Peer]
+PublicKey = [redacted]
+AllowedIPs = fd[redacted]::/48
+Endpoint = [redacted]:51820
+```

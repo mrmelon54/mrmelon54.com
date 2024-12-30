@@ -1,6 +1,6 @@
 name: Build/release
 
-on: [ push ]
+on: push
 
 jobs:
   release:
@@ -8,21 +8,13 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - run: yarn
-      - run: yarn build
+      - name: Build
+        run: yarn && yarn build
 
       - name: Archive
         run: tar -czvf upload.tar.gz -C ./dist/client .
-
-      - name: Test
-        run: tar -tzvf upload.tar.gz
 
       - name: Release
         run: 'curl --fail -X POST -H "Authorization: Bearer ${{ secrets.DEPLOY }}" -F "upload=@upload.tar.gz" "https://sites.1f349.com/u?site=mrmelon54.com&branch=${{ github.ref_name }}"'
