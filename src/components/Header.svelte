@@ -44,7 +44,7 @@
     @apply backdrop-blur backdrop-opacity-100;
     @apply lg:border-slate-900/10 border-slate-50/[0.06];
     @apply flex-col md:flex-row;
-    @apply fixed top-0 left-0 right-0 w-svw;
+    @apply fixed top-0 left-0 right-0 w-full;
     @apply md:h-16;
 
     .mobile-top-row {
