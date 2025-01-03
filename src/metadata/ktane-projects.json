@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Remote Math Interface",
+    "href": "https://github.com/mrmelon54/ktanemod-remote-math-interface",
+    "description": "The interface to connect Remote Math to Remote Math Server using secure websockets.",
+    "deprecated": false
+  },
+  {
+    "name": "Remote Math Server",
+    "href": "https://github.com/mrmelon54/ktanemod-remote-math-server",
+    "description": "The server allowing communication between Remote Math modules and the manual.",
+    "deprecated": false
+  },
+  {
+    "name": "KTaNE Mirror",
+    "href": "https://ktane-mirror.mrmelon54.com",
+    "description": "A cached version of the KTaNE Repository of Manual Pages for faster loading times.",
+    "deprecated": false
+  },
+  {
+    "name": "KTaNE Mod Ideas",
+    "href": "https://ktane-ideas.mrmelon54.com",
+    "description": "A website to display mod ideas from the mod idea spreadsheet.",
+    "deprecated": false
+  },
+  {
+    "name": "KTaNE Iconic Editor",
+    "href": "https://ktane-iconic-editor.mrmelon54.com",
+    "description": "New fancy editor for Iconic mod development.",
+    "deprecated": false
+  },
+  {
+    "name": "KTaNE Manual Editor",
+    "href": "https://ktane-manual-editor.mrmelon54.com",
+    "description": "New fancy editor for KTaNE manuals",
+    "deprecated": false
+  },
+  {
+    "name": "Iconic String Generator",
+    "href": "https://ktane-old.mrmelon54.com/iconic-string-generator",
+    "description": "Old editor for Iconic mod development.",
+    "deprecated": true
+  }
+]

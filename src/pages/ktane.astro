@@ -1,0 +1,72 @@
+---
+import Background from "../components/Background.astro";
+import Base from "../layouts/Base.astro";
+---
+
+<script>
+  import CodeIcon from "~/icons/Code.svelte";
+  import GamepadIcon from "~/icons/Gamepad2.svelte";
+  import Card from "~/components/card/Card.svelte";
+  import CardDetails from "~/components/card/CardDetails.svelte";
+  import CardTitle from "~/components/card/CardTitle.svelte";
+  import CardContent from "~/components/card/CardContent.svelte";
+  import Background from "~/components/Background.svelte";
+  import ktaneModsSource from "../metadata/ktane-mods.json";
+  import ktaneProjectsSource from "../metadata/ktane-projects.json";
+
+  interface KtaneMod {
+    key: string;
+    name: string;
+    steam: number;
+  }
+
+  const ktaneMods: KtaneMod[] = ktaneModsSource;
+
+  interface KtaneProject {
+    name: string;
+    href: string;
+    description: string;
+    deprecated: boolean;
+  }
+
+  const ktaneProjects: KtaneProject[] = ktaneProjectsSource;
+</script>
+
+<Background src="/bg.png" />
+
+<Base title="KTaNE Projects" description="Projects made by MrMelon54 for Keep Talking and Nobody Explodes" keywords="ktane,keep talking and nobody explodes,mrmelon54">
+  <section class="max-w-7xl mx-auto p-12 flex flex-col gap-8">
+    <h1 class="text-4xl">KTaNE Mods</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {#each ktaneMods as y}
+        <Card image={{src: `/ktane/${y.key}.png`, alt: `${y.name} Module Icon`}}>
+          <CardDetails grow={true}>
+            <CardTitle>{y.name}</CardTitle>
+            <span class="flex-grow" />
+            <a class="plain p-1 text-gray-200 hover:text-rose-500" href="https://steamcommunity.com/sharedfiles/filedetails/?id={y.steam}" target="_blank" rel="noreferrer">
+              <GamepadIcon size={28} />
+            </a>
+            <a class="plain p-1 text-gray-200 hover:text-rose-500" href="https://github.com/mrmelon54/ktanemod-{y.key}" target="_blank" rel="noreferrer">
+              <CodeIcon size={28} />
+            </a>
+          </CardDetails>
+        </Card>
+      {/each}
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto p-12 flex flex-col gap-8">
+    <h1 class="text-4xl">KTaNE Projects</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {#each ktaneProjects as y}
+        <Card href={y.href} target="_blank" rel="noreferrer">
+          <CardTitle>{y.name}</CardTitle>
+          {#if y.deprecated}
+            <div class="text-red-500">Deprecated</div>
+          {/if}
+          <CardContent>{y.description}</CardContent>
+        </Card>
+      {/each}
+    </div>
+  </section>
+</Layout>

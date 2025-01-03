@@ -1,0 +1,182 @@
+{
+  "armored-elytra": {
+    "name": "Armored Elytra",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/armored-elytra",
+      "id": "sfhhS5yg"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/armored-elytra",
+      "id": "406550"
+    },
+    "github": "https://github.com/mrmelon54/armored_elytra"
+  },
+  "auto-crouch": {
+    "name": "Auto Crouch",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/auto-crouch",
+      "id": "OcVQsnUW"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/auto-crouch",
+      "id": "527047"
+    },
+    "github": "https://github.com/mrmelon54/auto_crouch"
+  },
+  "bedrock-destroyer": {
+    "name": "Bedrock Destroyer",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/bedrock-destroyer",
+      "id": "ZZuy39x7"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/bedrock-destroyer",
+      "id": "481260"
+    },
+    "github": "https://github.com/mrmelon54/bedrock_destroyer"
+  },
+  "better-christmas-chests": {
+    "name": "Better Christmas Chests",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/better-christmas-chests",
+      "id": "57LuwxDi"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/better-christmas-chests",
+      "id": "431029"
+    },
+    "github": "https://github.com/mrmelon54/better_christmas_chests"
+  },
+  "better-resource-pack-sorting": {
+    "name": "Better Resource Pack Sorting",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/better-resource-pack-sorting",
+      "id": "SpY2M2I9"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/better-resource-pack-sorting",
+      "id": "556855"
+    },
+    "github": "https://github.com/mrmelon54/better_resource_pack_sorting"
+  },
+  "clock-hud": {
+    "name": "Clock HUD",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/clock-hud",
+      "id": "58HcosC7"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/clockhud",
+      "id": "555235"
+    },
+    "github": "https://github.com/mrmelon54/clock_hud"
+  },
+  "compact-ui": {
+    "name": "Compact UI",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/compact-ui",
+      "id": "1DBXKEfB"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/compact-ui",
+      "id": "522667"
+    },
+    "github": "https://github.com/mrmelon54/compact_ui"
+  },
+  "draggable-lists": {
+    "name": "Draggable Lists",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/draggable-lists",
+      "id": "aLcHfalx"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/draggable-lists",
+      "id": "522697"
+    },
+    "github": "https://github.com/mrmelon54/draggable_lists"
+  },
+  "enhanced-searchability": {
+    "name": "Enhanced Searchability",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/enhanced-searchability",
+      "id": "Scg0CNUt"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/enhanced-searchability",
+      "id": "538023"
+    },
+    "github": "https://github.com/mrmelon54/enhanced_searchability"
+  },
+  "extra-armor-info": {
+    "name": "Extra Armor Info",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/extra-armor-info",
+      "id": "qoXI03ct"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/extra-armor-info",
+      "id": "471261"
+    },
+    "github": "https://github.com/mrmelon54/extra_armor_info"
+  },
+  "illegal-stack-fixer": {
+    "name": "Illegal Stack Fixer",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/illegal-stack-fixer",
+      "id": "1P8FCviI"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/illegal-stack-fixer",
+      "id": "482910"
+    },
+    "github": "https://github.com/mrmelon54/illegal_stack_fixer"
+  },
+  "infrastructury": {
+    "name": "Infrastructury",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/infrastructury",
+      "id": "NtdHRxOb"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/infrastructury",
+      "id": "982368"
+    },
+    "github": "https://github.com/infrastructury/infrastructury"
+  },
+  "multiple-server-lists": {
+    "name": "Multiple Server Lists",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/multiple-server-lists",
+      "id": "DE4SzdOB"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/multiple-server-lists",
+      "id": "523709"
+    },
+    "github": "https://github.com/mrmelon54/multiple_server_lists"
+  },
+  "open-lights-controller": {
+    "name": "Open Lights Controller",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/open-lights-controller",
+      "id": "N0mSWWJz"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/open-lights-controller",
+      "id": "484178"
+    },
+    "github": "https://github.com/mrmelon54/open-lights-controller-forge"
+  },
+  "wireless-redstone": {
+    "name": "Wireless Redstone",
+    "modrinth": {
+      "url": "https://modrinth.com/mod/wireless-redstone",
+      "id": "I8Go3rfs"
+    },
+    "curseforge": {
+      "url": "https://curseforge.com/minecraft/mc-mods/melon-wireless-redstone",
+      "id": "520255"
+    },
+    "github": "https://github.com/mrmelon54/wireless_redstone"
+  }
+}

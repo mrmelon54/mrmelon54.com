@@ -1,0 +1,17 @@
+---
+interface Props {
+  src: string;
+}
+
+const { src: bg } = Astro.props;
+---
+
+<div class="bg" style={`--img: url('${bg}');`}></div>
+
+<style lang="postcss">
+  .bg {
+    @apply absolute top-0 right-0 w-full h-full -z-10 bg-no-repeat;
+    background-image: var(--img);
+    background-position: 100% 0;
+  }
+</style>

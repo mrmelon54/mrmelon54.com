@@ -1,0 +1,34 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props<Value extends Item> {
+  items: Value[];
+}
+
+interface Item {
+  href: string;
+  heroImage: string;
+  title: string;
+  pubDate: Date;
+}
+
+const {items} = Astro.props;
+---
+
+<ul>
+  {
+    items.map((item: Item) => {
+      return (
+        <li>
+          <a href={item.href}>
+            <img width={720} height={360} src={item.heroImage} alt="" />
+            <h4 class="title">{item.title}</h4>
+            <p class="date">
+              <FormattedDate date={item.pubDate} />
+            </p>
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
