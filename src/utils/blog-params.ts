@@ -8,7 +8,7 @@ export function getBlogParams(post: CollectionEntry<"blog">) {
   const pubDay = String(pubDate.getDate()).padStart(2, "0");
 
   const slug = post.id;
-  const path = `${pubYear}/${pubMonth}/${pubDay}/${slug}`;
+  const path = `${slug}`;
   
   return {
     year: pubYear,
