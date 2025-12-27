@@ -62,7 +62,7 @@
     },
     {
       name: "KTaNE Mirror",
-      href: "https://ktane-mirror.mrmelon54.com",
+      href: "https://ktane.mrmelon54.com",
       description: "A cached version of the KTaNE Repository of Manual Pages for faster loading times.",
       deprecated: false,
     },
