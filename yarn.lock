@@ -924,7 +924,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/trusted-types@npm:*":
+"@types/trusted-types@npm:*, @types/trusted-types@npm:^2.0.7":
   version: 2.0.7
   resolution: "@types/trusted-types@npm:2.0.7"
   checksum: 8e4202766a65877efcf5d5a41b7dd458480b36195e580a3b1085ad21e948bc417d55d6f8af1fd2a7ad008015d4117d5fdfe432731157da3c68678487174e4ba3
@@ -1303,10 +1303,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^2.3.6, dompurify@npm:^2.4.1":
+"dompurify@npm:^2.3.6":
   version: 2.5.8
   resolution: "dompurify@npm:2.5.8"
   checksum: 8d7acd42bfc75d3dd9030d61201e346fffc4fd5f62e491a446564f0d5e0ffc1635712ccf7781302b00c4fefe412a030b5434c9e803605d81343e923b088cde7e
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^3.2.4":
+  version: 3.3.1
+  resolution: "dompurify@npm:3.3.1"
+  dependencies:
+    "@types/trusted-types": ^2.0.7
+  dependenciesMeta:
+    "@types/trusted-types":
+      optional: true
+  checksum: 884fe0acc21a9a2e5aa1b8ce4cecc8f9a71217423b389f760fca7b44595d3c9376d234f1c4ba16d79824789762b3d611d10653c4a90a7e23b351b71e5ef7dd33
   languageName: node
   linkType: hard
 
@@ -2195,7 +2207,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/highlight.js": ^10.1.0
     autoprefixer: ^10.4.19
-    dompurify: ^2.4.1
+    dompurify: ^3.2.4
     highlight.js: ^11.7.0
     lucide-svelte: ^0.376.1
     mdsvex: ^0.11.0
