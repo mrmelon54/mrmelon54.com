@@ -1383,18 +1383,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^3.3.2":
-  version: 3.3.2
-  resolution: "dompurify@npm:3.3.2"
-  dependencies:
-    "@types/trusted-types": ^2.0.7
-  dependenciesMeta:
-    "@types/trusted-types":
-      optional: true
-  checksum: 27856958c4088de2e2279b9514fcf3427c925e3cedf9d176957d9469a5199c39b572931a441cbb2025d1910c2890644280d0db8d5180b1366164cac309da08e5
-  languageName: node
-  linkType: hard
-
 "eastasianwidth@npm:^0.2.0":
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
@@ -2321,7 +2309,6 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/highlight.js": ^10.1.0
     autoprefixer: ^10.4.19
-    dompurify: ^3.3.2
     highlight.js: ^11.7.0
     lucide-svelte: ^0.376.1
     mdsvex: ^0.11.0
