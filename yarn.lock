@@ -1377,9 +1377,21 @@ __metadata:
   linkType: hard
 
 "dompurify@npm:^2.3.6":
-  version: 2.5.8
-  resolution: "dompurify@npm:2.5.8"
-  checksum: 8d7acd42bfc75d3dd9030d61201e346fffc4fd5f62e491a446564f0d5e0ffc1635712ccf7781302b00c4fefe412a030b5434c9e803605d81343e923b088cde7e
+  version: 2.5.9
+  resolution: "dompurify@npm:2.5.9"
+  checksum: 5500ad3fd95784d3b651ba9bfa4ad185c0b0115b377f41d0fa0dc2dbc88f793b492d08f4fc9b48218b3571ea4310e08970b0b93092e3175c963500cb08e7421b
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^3.3.2":
+  version: 3.3.3
+  resolution: "dompurify@npm:3.3.3"
+  dependencies:
+    "@types/trusted-types": ^2.0.7
+  dependenciesMeta:
+    "@types/trusted-types":
+      optional: true
+  checksum: 2ba5b40129259836f1e6c98e99d16608d34c7f4ad6ba457ac8c932f0e2c8e0e7c27561d25fcabf97e695eec57fd5eef1c065b324a542e5125631d4f768af2736
   languageName: node
   linkType: hard
 
@@ -2309,6 +2321,7 @@ __metadata:
     "@types/dompurify": ^2.4.0
     "@types/highlight.js": ^10.1.0
     autoprefixer: ^10.4.19
+    dompurify: ^3.3.2
     highlight.js: ^11.7.0
     lucide-svelte: ^0.376.1
     mdsvex: ^0.11.0
