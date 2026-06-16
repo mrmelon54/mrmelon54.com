@@ -40,5 +40,6 @@
     "typescript": "^4.6.4",
     "vite": "^6.4.2",
     "vite-plugin-ssr": "^0.4.142"
-  }
+  },
+  "packageManager": "yarn@4.17.0"
 }
