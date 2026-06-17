@@ -20,5 +20,6 @@
     "svelte": "^5.38.7",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2"
-  }
+  },
+  "packageManager": "yarn@4.17.0"
 }
