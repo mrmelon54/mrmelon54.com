@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 8
+  version: 10
   cacheKey: 10
 
 "@alloc/quick-lru@npm:^5.2.0":
@@ -1404,15 +1404,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^3.4.0":
-  version: 3.4.5
-  resolution: "dompurify@npm:3.4.5"
+"dompurify@npm:^3.4.9":
+  version: 3.4.9
+  resolution: "dompurify@npm:3.4.9"
   dependencies:
     "@types/trusted-types": "npm:^2.0.7"
   dependenciesMeta:
     "@types/trusted-types":
       optional: true
-  checksum: 10/b39c9bbd5c87dd29d1fda6446ddd7319a86c85a4c12af5cfef17697cfefbd13b8baf698d5a3cb4ee0b941f8b6e49af6a63c844246e6aee83ddb417e03470613a
+  checksum: 10/2d651dcf413646e4a66202b424eade1f2a793fb22fe83dcb5a0800349ad879344fd92e76fd494ef06fb10ecb051660207844e7900156cef3e61942fdac405aa0
   languageName: node
   linkType: hard
 
@@ -2363,7 +2363,7 @@ __metadata:
     "@types/dompurify": "npm:^2.4.0"
     "@types/highlight.js": "npm:^10.1.0"
     autoprefixer: "npm:^10.4.19"
-    dompurify: "npm:^3.4.0"
+    dompurify: "npm:^3.4.9"
     highlight.js: "npm:^11.7.0"
     lucide-svelte: "npm:^0.376.1"
     mdsvex: "npm:^0.11.0"
